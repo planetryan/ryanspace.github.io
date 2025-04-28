@@ -5,14 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RyanSpace</title>
   <style>
-    body {
-      font-family: sans-serif;
-      line-height: 1.6;
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
+      font-family: sans-serif;
+      line-height: 1.6;
       background: #f9f9f9;
       color: #333;
       text-align: center;
+      display: flex;
+      flex-direction: column;
     }
     header {
       background: #444;
@@ -32,7 +35,12 @@
     .container {
       padding: 2rem;
       max-width: 800px;
+      width: 100%;
       margin: auto;
+      flex: 1; /* This makes the container fill space and push footer down */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .post {
       background: white;
@@ -47,7 +55,6 @@
       padding: 1rem;
       background: #444;
       color: #fff;
-      margin-top: 4rem;
     }
   </style>
 </head>
