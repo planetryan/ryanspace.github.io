@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RyanSpace - Sobre Mi</title>
+  <link rel="icon" href="/images/channels4_profile.ico" sizes="32x32" />
   <style>
     * {
       margin: 0;
@@ -11,34 +12,33 @@
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
+      height: 100%;
       font-family: sans-serif;
       line-height: 1.6;
       background: #f9f9f9;
       color: #333;
       display: flex;
       flex-direction: column;
-      min-height: 100%;
-      text-align: center; /* Center text globally */
+      text-align: center;
     }
 
     header {
       background: #444;
       color: white;
       padding: 2rem 5%;
-      text-align: center;
     }
 
     nav {
       background: #eee;
       padding: 1rem 5%;
-      text-align: center;
     }
 
     nav a {
       margin: 0 1rem;
       text-decoration: none;
       color: #444;
+      display: inline-block;
     }
 
     main.container {
@@ -47,6 +47,9 @@
       width: 100%;
       margin: auto;
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .post {
@@ -58,7 +61,7 @@
       width: 100%;
     }
 
-    .post h2, .post h3, .post h4, .post a {
+    .post h2, .post h3, .post h4, .post p, .post a {
       margin: 0.5rem 0;
     }
 
@@ -66,7 +69,6 @@
       background: #444;
       color: white;
       padding: 1rem;
-      text-align: center;
     }
 
     @media (max-width: 1200px) {
@@ -75,6 +77,10 @@
       }
 
       nav {
+        padding: 1rem 4%;
+      }
+
+      main.container {
         padding: 1rem 4%;
       }
 
@@ -129,12 +135,13 @@
 <body>
 
 <header>
-  <h1>Els RyanSpace</h1>
+  <h1>RyanSpace</h1>
+  <p>Sobre Mi</p>
 </header>
 
 <nav>
-  <a rel="me" href="index.html">Retorn amb RyanSpace.cat</a> |
-  <a rel="me" href="contacte.html">Contacte</a>
+  <a href="index.html">Inici</a>
+  <a href="contacte.html">Contacte</a>
 </nav>
 
 <main class="container">
@@ -143,29 +150,7 @@
     <h2>Sobre mi:</h2>
     <h3>No tinc gaire a dir aquí, no sóc una persona especial.</h3>
     <h4>
-      Molt sobre assemblador RISC-V, aprendre C i C++, utilitzar HTML, CSS i Java per a aquest lloc web i aniré a la universitat a la tardor del 2025.
-    </h4>
-  </section>
-
-  <!--<section class="post">
-    <h2>Mis Links Sitios web de RyanSpace:</h2>
-
-    <h3>Github:</h3>
-    <h4>
-      <a rel="me" href="https://github.com/planetryan">Aqui</a>
-    </h4>
-
-    <h3>Youtube:</h3>
-    <h4>
-      <a rel="me" href="https://www.youtube.com/@ryanspaceYT">Aqui</a>
-    </h4>
-
-    <h3>Discord:</h3>
-    <h4>En Discord sóc planetryan</h4>
-
-    <h3>Mastodon (No faig servir tant):</h3>
-    <h4>
-      <a rel="me" href="https://mastodon.social/@ryanspace">Aqui</a>
+      M'interessa l'assemblador RISC-V, estic aprenent C i C++, utilitzo HTML, CSS i una mica de Java per aquest lloc web, i aniré a la universitat a la tardor del 2025.
     </h4>
   </section>
 
@@ -174,11 +159,6 @@
   </section>
 
 </main>
--->
-
-<section class="post">
-  <h2>Que Déu em beneeixi, perquè sóc el seu fill sagrat.</h2>
-</section>
 
 <footer>
   2025 RyanSpace - Tots els drets reservats.
