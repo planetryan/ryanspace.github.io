@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RyanSpace - Contacte</title>
+  <link rel="icon" href="/images/channels4_profile.ico" sizes="32x32" />
   <style>
     * {
       margin: 0;
@@ -11,34 +12,33 @@
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
+      height: 100%;
       font-family: sans-serif;
       line-height: 1.6;
       background: #f9f9f9;
       color: #333;
       display: flex;
       flex-direction: column;
-      min-height: 100%;
-      text-align: center; /* Center text globally */
+      text-align: center;
     }
 
     header {
       background: #444;
       color: white;
       padding: 2rem 5%;
-      text-align: center;
     }
 
     nav {
       background: #eee;
       padding: 1rem 5%;
-      text-align: center;
     }
 
     nav a {
       margin: 0 1rem;
       text-decoration: none;
       color: #444;
+      display: inline-block;
     }
 
     main.container {
@@ -47,6 +47,9 @@
       width: 100%;
       margin: auto;
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .post {
@@ -66,7 +69,6 @@
       background: #444;
       color: white;
       padding: 1rem;
-      text-align: center;
     }
 
     @media (max-width: 1200px) {
@@ -75,6 +77,10 @@
       }
 
       nav {
+        padding: 1rem 4%;
+      }
+
+      main.container {
         padding: 1rem 4%;
       }
 
@@ -130,37 +136,39 @@
 
 <header>
   <h1>RyanSpace</h1>
+  <p>Contacte amb RyanSpace</p>
 </header>
 
 <nav>
-  <a rel="me" href="index.html">Retorn amb RyanSpace.cat</a> |
-  <a href="#">Contacte</a>
+  <a href="index.html">Inici</a>
+  <a href="sobre_mi.html">Sobre Mi</a>
+  <a href="#">Blog (no terminat)!</a>
+  <a href="#">Imatges (no terminat)!</a>
+  <a href="https://github.com/planetryan/ryanspace.github.io" target="_blank">Codi Font</a>
 </nav>
 
 <main class="container">
-
   <section class="post">
-    <h2>Mis Links Sitios web de RyanSpace:</h2>
+    <h2>Els meus enllaços:</h2>
 
-    <h3>Github:</h3>
+    <h3>GitHub:</h3>
     <h4>
-      <a rel="me" href="https://github.com/planetryan">Aqui</a>
+      <a rel="me" href="https://github.com/planetryan" target="_blank">Fes clic aquí</a>
     </h4>
 
-    <h3>Youtube:</h3>
+    <h3>YouTube:</h3>
     <h4>
-      <a rel="me" href="https://www.youtube.com/@ryanspaceYT">Aqui</a>
+      <a rel="me" href="https://www.youtube.com/@ryanspaceYT" target="_blank">Fes clic aquí</a>
     </h4>
 
     <h3>Discord:</h3>
-    <h4>En Discord sóc planetryan</h4>
+    <h4>En Discord sóc <strong>planetryan</strong></h4>
 
-    <h3>Mastodon (No faig servir tant):</h3>
+    <h3>Mastodon (no faig servir tant):</h3>
     <h4>
-      <a rel="me" href="https://mastodon.social/@ryanspace">Aqui</a>
+      <a rel="me" href="https://mastodon.social/@ryanspace" target="_blank">Fes clic aquí</a>
     </h4>
   </section>
-
 </main>
 
 <footer>
