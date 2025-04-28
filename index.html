@@ -12,22 +12,22 @@
       padding: 0;
       background: #f9f9f9;
       color: #333;
+      text-align: center;
     }
     header {
       background: #444;
       color: #fff;
       padding: 1rem 2rem;
-      text-align: center;
     }
     nav {
       background: #eee;
       padding: 0.5rem 2rem;
-      text-align: center;
     }
     nav a {
       margin: 0 1rem;
       text-decoration: none;
       color: #444;
+      display: inline-block;
     }
     .container {
       padding: 2rem;
@@ -40,12 +40,10 @@
       margin-bottom: 2rem;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    .post h2 {
-      margin-top: 0;
+      display: inline-block;
+      width: 100%;
     }
     footer {
-      text-align: center;
       padding: 1rem;
       background: #444;
       color: #fff;
@@ -55,26 +53,29 @@
 </head>
 <body>
 
-  <header>
-    <h1>RyanSpace</h1>
-    <p>Benvinguts al RyanSpace!</p>
-  </header>
+<header>
+  <h1>RyanSpace</h1>
+  <p>Benvinguts al RyanSpace!</p>
+</header>
 
-  <div class="container">
-  <nav>
-    <a href="sobre_mi.html">Sobre Mi</a>
-    <a href="#">Contacte (no terminat)!</a>
-    <a href="https://github.com/planetryan" target="_blank">El meu GitHub</a>
-    
-  </div>
-<h3>
-  No sé què posar aquí ara mateix, potser algunes fotos? El blog? No en tinc ni idea.
+<nav>
+  <a href="sobre_mi.html">Sobre Mi</a>
+  <a href="#">Contacte (no terminat)!</a>
+  <a href="https://github.com/planetryan" target="_blank">El meu GitHub</a>
+</nav>
 
-  Més informació sobre mi <a href="sobre_mi.html">aqui</a>
-</h3>
-  <footer>
-    &copy; 2025 RyanSpace Tots els drets reservats.
-  </footer>
+<div class="container">
+  <section class="post">
+    <h3>
+      No sé què posar aquí ara mateix, potser algunes fotos? El blog? No en tinc ni idea.<br><br>
+      Més informació sobre mi <a href="sobre_mi.html">aqui</a>
+    </h3>
+  </section>
+</div>
+
+<footer>
+  &copy; 2025 RyanSpace - Tots els drets reservats.
+</footer>
 
 </body>
 </html>
