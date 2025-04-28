@@ -5,52 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RyanSpace - Sobre Mi</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: sans-serif;
       line-height: 1.6;
-      margin: 0;
-      padding: 0;
       background: #f9f9f9;
       color: #333;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      text-align: center; /* Center text globally */
     }
+
     header {
       background: #444;
-      color: #fff;
-      padding: 1rem 2rem;
+      color: white;
+      padding: 2rem 5%;
+      text-align: center;
     }
+
     nav {
       background: #eee;
-      padding: 0.5rem 2rem;
+      padding: 1rem 5%;
+      text-align: center;
     }
+
     nav a {
       margin: 0 1rem;
       text-decoration: none;
       color: #444;
-      display: inline-block;
     }
-    .container {
-      padding: 2rem;
-      max-width: 800px;
+
+    main.container {
+      padding: 2rem 5%;
+      max-width: 1200px;
+      width: 100%;
       margin: auto;
+      flex: 1;
     }
+
     .post {
       background: white;
       padding: 1.5rem;
       margin-bottom: 2rem;
       border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-      display: inline-block;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       width: 100%;
     }
+
     .post h2, .post h3, .post h4, .post a {
       margin: 0.5rem 0;
     }
+
     footer {
-      padding: 1rem;
       background: #444;
-      color: #fff;
-      margin-top: 4rem;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    @media (max-width: 1200px) {
+      header {
+        padding: 2rem 4%;
+      }
+
+      nav {
+        padding: 1rem 4%;
+      }
+
+      .post {
+        padding: 1.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      main.container {
+        padding: 1rem 2%;
+      }
+
+      header {
+        padding: 1.5rem 3%;
+      }
+
+      footer {
+        font-size: 0.9rem;
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 1.2rem 2%;
+      }
+
+      nav {
+        padding: 1rem 2%;
+      }
+
+      main.container {
+        padding: 0.5rem 2%;
+      }
+
+      footer {
+        font-size: 0.8rem;
+      }
     }
   </style>
 </head>
@@ -104,7 +176,7 @@
 </main>
 -->
 <footer>
-  &copy; 2025 RyanSpace - Tots els drets reservats.
+  2025 RyanSpace - Tots els drets reservats.
 </footer>
 
 </body>
