@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RyanSpace - Blog</title>
+  <link rel="icon" href="/images/channels4_profile.ico" sizes="32x32" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: sans-serif;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    header {
+      background: #444;
+      color: white;
+      padding: 2rem 5%;
+    }
+
+    nav {
+      background: #eee;
+      padding: 1rem 5%;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #444;
+      display: inline-block;
+    }
+
+    main.container {
+      padding: 2rem 5%;
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .post {
+      background: white;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      width: 100%;
+    }
+
+    .post h2, .post h3, .post h4, .post p, .post a {
+      margin: 0.5rem 0;
+    }
+
+    footer {
+      background: #444;
+      color: white;
+      padding: 1rem;
+    }
+
+    @media (max-width: 1200px) {
+      header {
+        padding: 2rem 4%;
+      }
+
+      nav {
+        padding: 1rem 4%;
+      }
+
+      main.container {
+        padding: 1rem 4%;
+      }
+
+      .post {
+        padding: 1.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      main.container {
+        padding: 1rem 2%;
+      }
+
+      header {
+        padding: 1.5rem 3%;
+      }
+
+      footer {
+        font-size: 0.9rem;
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 1.2rem 2%;
+      }
+
+      nav {
+        padding: 1rem 2%;
+      }
+
+      main.container {
+        padding: 0.5rem 2%;
+      }
+
+      footer {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>RyanSpace</h1>
+  <p>Blog</p>
+</header>
+
+<nav>
+  <a href="index.html">Inici</a>
+  <a href="contacte.html">Contacte</a>
+  <a href="sobre_mi.html">Sobre Mi</a>
+</nav>
+
+<main class="container">
+
+  <section class="post">
+    <h2>Primer article</h2>
+    <h4>Data: 28 d'abril de 2025</h4>
+    <p>Benvinguts al meu blog. Aquí parlaré de tecnologia, programació, i altres coses que m'interessen.</p>
+  </section>
+
+  <section class="post">
+    <h2>Un nou començament</h2>
+    <h4>Data: 25 d'abril de 2025</h4>
+    <p>He decidit començar aquest blog com a part del meu projecte personal amb RyanSpace.cat. Gràcies per visitar!</p>
+  </section>
+
+  <section class="post">
+    <h2>Un nou començament</h2>
+    <h4>Data: 16 d'abril de 2025</h4>
+    <p>Prova d'blog</p>
+  </section>
+
+</main>
+
+<footer>
+  2025 RyanSpace - Tots els drets reservats.
+</footer>
+
+</body>
+</html>
