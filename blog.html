@@ -61,8 +61,17 @@
       width: 100%;
     }
 
-    .post h2, .post h3, .post h4, .post p, .post a {
+    .post a {
+      text-decoration: none;
+      color: #444;
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: block;
+    }
+
+    .post h4 {
       margin: 0.5rem 0;
+      color: #666;
     }
 
     footer {
@@ -72,63 +81,25 @@
     }
 
     @media (max-width: 1200px) {
-      header {
-        padding: 2rem 4%;
-      }
-
-      nav {
-        padding: 1rem 4%;
-      }
-
-      main.container {
-        padding: 1rem 4%;
-      }
-
-      .post {
-        padding: 1.2rem;
-      }
+      header { padding: 2rem 4%; }
+      nav { padding: 1rem 4%; }
+      main.container { padding: 1rem 4%; }
+      .post { padding: 1.2rem; }
     }
 
     @media (max-width: 768px) {
-      nav {
-        text-align: center;
-      }
-
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
-      }
-
-      main.container {
-        padding: 1rem 2%;
-      }
-
-      header {
-        padding: 1.5rem 3%;
-      }
-
-      footer {
-        font-size: 0.9rem;
-        padding: 1rem;
-      }
+      nav { text-align: center; }
+      nav a { display: block; margin: 0.5rem 0; }
+      main.container { padding: 1rem 2%; }
+      header { padding: 1.5rem 3%; }
+      footer { font-size: 0.9rem; padding: 1rem; }
     }
 
     @media (max-width: 480px) {
-      header {
-        padding: 1.2rem 2%;
-      }
-
-      nav {
-        padding: 1rem 2%;
-      }
-
-      main.container {
-        padding: 0.5rem 2%;
-      }
-
-      footer {
-        font-size: 0.8rem;
-      }
+      header { padding: 1.2rem 2%; }
+      nav { padding: 1rem 2%; }
+      main.container { padding: 0.5rem 2%; }
+      footer { font-size: 0.8rem; }
     }
   </style>
 </head>
@@ -148,21 +119,18 @@
 <main class="container">
 
   <section class="post">
-    <h2>Primer article</h2>
+    <a href="primer_article.html">Primer article</a>
     <h4>Data: 28 d'abril de 2025</h4>
-    <p>Benvinguts al meu blog. Aquí parlaré de tecnologia, programació, i altres coses que m'interessen.</p>
   </section>
 
   <section class="post">
-    <h2>Un nou començament</h2>
+    <a href="nou_comencament.html">Un nou començament</a>
     <h4>Data: 25 d'abril de 2025</h4>
-    <p>He decidit començar aquest blog com a part del meu projecte personal amb RyanSpace.cat. Gràcies per visitar!</p>
   </section>
 
   <section class="post">
-    <h2>Un nou començament</h2>
+    <a href="prova_blog.html">Prova d'blog</a>
     <h4>Data: 16 d'abril de 2025</h4>
-    <p>Prova d'blog</p>
   </section>
 
 </main>
