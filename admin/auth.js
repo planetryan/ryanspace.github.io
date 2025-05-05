@@ -1,10 +1,10 @@
-// Initialize the Auth0 client
-const auth0 = new auth0.WebAuth({
-    domain: "auth.ryanspace.cat", // Auth0 domain
-    clientID: "d5BMj4LU98sAvvgQwgIHiDJfVSyha3VC", // Auth0 Client ID
-    redirectUri: "https://ryanspace.cat/admin/callback", // Callback URL
-    responseType: "token id_token", // Response type
-    scope: "openid profile email", // Request user profile and email information
+// Initialize the Auth0 WebAuth client
+const auth0Client = new auth0.WebAuth({
+    domain: "auth.ryanspace.cat", // Your Auth0 domain
+    clientID: "d5BMj4LU98sAvvgQwgIHiDJfVSyha3VC", // Your Auth0 Client ID
+    redirectUri: "https://ryanspace.cat/admin/", // Redirect URI after login
+    responseType: "token id_token", // Receive access and ID tokens
+    scope: "openid profile email" // Request user info scopes
   });
   
   // DOM Elements
@@ -12,31 +12,31 @@ const auth0 = new auth0.WebAuth({
   const logoutButton = document.getElementById("logout-btn");
   const userInfoDiv = document.getElementById("user-info");
   
-  // Function to handle login
+  // Function to initiate login
   function login() {
-    console.log("Login button clicked"); // Debugging statement
-    auth0.authorize();
+    console.log("Login button clicked");
+    auth0Client.authorize();
   }
   
-  // Function to handle logout
+  // Function to logout and clear session
   function logout() {
-    console.log("Logout button clicked"); // Debugging statement
-    auth0.logout({
-      returnTo: "https://ryanspace.cat/admin/", // Redirect after logout
-      clientID: "d5BMj4LU98sAvvgQwgIHiDJfVSyha3VC", // Required for Auth0 logout
+    console.log("Logout button clicked");
+    auth0Client.logout({
+      returnTo: "https://ryanspace.cat/admin/",
+      clientID: "d5BMj4LU98sAvvgQwgIHiDJfVSyha3VC"
     });
-    clearSession(); // Clear session data
+    clearSession();
   }
   
-  // Function to handle authentication once the user is redirected back
+  // Handle Auth0 redirect after login
   function handleAuthentication() {
-    console.log("Handling authentication..."); // Debugging statement
-    auth0.parseHash((err, authResult) => {
+    console.log("Handling authentication...");
+    auth0Client.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
-        console.log("Authentication successful:", authResult); // Debugging statement
-        window.location.hash = ""; // Clear the URL hash
-        setSession(authResult); // Save the session data
-        displayUserInfo(); // Fetch and display user info
+        console.log("Authentication successful:", authResult);
+        window.location.hash = "";
+        setSession(authResult);
+        displayUserInfo();
       } else if (err) {
         console.error("Authentication error:", err);
         alert("Authentication failed. Please try again.");
@@ -44,9 +44,9 @@ const auth0 = new auth0.WebAuth({
     });
   }
   
-  // Function to save session data in sessionStorage
+  // Store session data in sessionStorage
   function setSession(authResult) {
-    console.log("Setting session..."); // Debugging statement
+    console.log("Setting session...");
     sessionStorage.setItem("access_token", authResult.accessToken);
     sessionStorage.setItem("id_token", authResult.idToken);
     sessionStorage.setItem(
@@ -55,44 +55,43 @@ const auth0 = new auth0.WebAuth({
     );
   }
   
-  // Function to clear session data
+  // Clear session and UI state
   function clearSession() {
-    console.log("Clearing session..."); // Debugging statement
+    console.log("Clearing session...");
     sessionStorage.removeItem("access_token");
     sessionStorage.removeItem("id_token");
     sessionStorage.removeItem("expires_at");
-    userInfoDiv.innerHTML = ""; // Clear user info display
+    userInfoDiv.innerHTML = "";
     loginButton.style.display = "inline";
     logoutButton.style.display = "none";
   }
   
-  // Function to check if the user is authenticated
+  // Check if session is still valid
   function isAuthenticated() {
     const expiresAt = JSON.parse(sessionStorage.getItem("expires_at"));
-    return new Date().getTime() < expiresAt; // Check if the current time is before the expiration time
+    return new Date().getTime() < expiresAt;
   }
   
-  // Function to fetch and display user info
+  // Fetch and show user profile info
   function displayUserInfo() {
     const accessToken = sessionStorage.getItem("access_token");
     if (!accessToken) return;
   
-    // Show loading message while fetching user info
-    console.log("Fetching user info..."); // Debugging statement
+    console.log("Fetching user info...");
     userInfoDiv.innerHTML = `<p>Loading user info...</p>`;
   
-    auth0.client.userInfo(accessToken, (err, user) => {
+    auth0Client.client.userInfo(accessToken, (err, user) => {
       if (err) {
         console.error("Error fetching user info:", err);
         userInfoDiv.innerHTML = `<p>Error loading user info. Please try again.</p>`;
         return;
       }
   
-      console.log("User info fetched successfully:", user); // Debugging statement
-      // Display the user's name and profile picture
+      console.log("User info fetched successfully:", user);
       userInfoDiv.innerHTML = `
         <div style="display: flex; align-items: center;">
-          <img src="${user.picture}" alt="User Avatar" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 10px;">
+          <img src="${user.picture}" alt="User Avatar"
+               style="width: 50px; height: 50px; border-radius: 50%; margin-right: 10px;">
           <p style="margin: 0;">Welcome, <strong>${user.name}</strong>!</p>
         </div>
       `;
@@ -101,15 +100,16 @@ const auth0 = new auth0.WebAuth({
     });
   }
   
-  // On page load, check if returning from Auth0 login and handle session
+  // On page load: handle auth redirect, check session
   window.onload = () => {
-    console.log("Page loaded..."); // Debugging statement
-    handleAuthentication(); // Handle authentication if redirected back from Auth0
+    console.log("Page loaded...");
+    handleAuthentication();
     if (isAuthenticated()) {
-      displayUserInfo(); // Display user info if already authenticated
+      displayUserInfo();
     }
   };
   
   // Attach event listeners
   loginButton.addEventListener("click", login);
   logoutButton.addEventListener("click", logout);
+  
