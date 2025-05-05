@@ -1,10 +1,10 @@
 // Initialize the Auth0 client
 const auth0 = new auth0.WebAuth({
-    domain: "auth.ryanspace.cat",
-    clientID: "d5BMj4LU98sAvvgQwgIHiDJfVSyha3VC",
-    redirectUri: "https://ryanspace.cat/admin/callback",
-    responseType: "token id_token",
-    scope: "openid profile email",
+    domain: "auth.ryanspace.cat", // Auth0 domain
+    clientID: "d5BMj4LU98sAvvgQwgIHiDJfVSyha3VC", // Auth0 Client ID
+    redirectUri: "https://ryanspace.cat/admin/callback", // Callback URL
+    responseType: "token id_token", // Response type
+    scope: "openid profile email", // Request user profile and email information
   });
   
   // DOM Elements
@@ -20,19 +20,19 @@ const auth0 = new auth0.WebAuth({
   // Function to handle logout
   function logout() {
     auth0.logout({
-      returnTo: "https://ryanspace.cat/admin/",
-      clientID: "d5BMj4LU98sAvvgQwgIHiDJfVSyha3VC",
+      returnTo: "https://ryanspace.cat/admin/", // Redirect after logout
+      clientID: "d5BMj4LU98sAvvgQwgIHiDJfVSyha3VC", // Required for Auth0 logout
     });
-    clearSession();
+    clearSession(); // Clear session data
   }
   
   // Function to handle authentication once the user is redirected back
   function handleAuthentication() {
     auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
-        window.location.hash = "";
-        setSession(authResult);
-        displayUserInfo();
+        window.location.hash = ""; // Clear the URL hash
+        setSession(authResult); // Save the session data
+        displayUserInfo(); // Fetch and display user info
       } else if (err) {
         console.error("Authentication error:", err);
         alert("Authentication failed. Please try again.");
@@ -55,7 +55,7 @@ const auth0 = new auth0.WebAuth({
     sessionStorage.removeItem("access_token");
     sessionStorage.removeItem("id_token");
     sessionStorage.removeItem("expires_at");
-    userInfoDiv.innerHTML = "";
+    userInfoDiv.innerHTML = ""; // Clear user info display
     loginButton.style.display = "inline";
     logoutButton.style.display = "none";
   }
@@ -63,7 +63,7 @@ const auth0 = new auth0.WebAuth({
   // Function to check if the user is authenticated
   function isAuthenticated() {
     const expiresAt = JSON.parse(sessionStorage.getItem("expires_at"));
-    return new Date().getTime() < expiresAt;
+    return new Date().getTime() < expiresAt; // Check if the current time is before the expiration time
   }
   
   // Function to fetch and display user info
@@ -71,6 +71,7 @@ const auth0 = new auth0.WebAuth({
     const accessToken = sessionStorage.getItem("access_token");
     if (!accessToken) return;
   
+    // Show loading message while fetching user info
     userInfoDiv.innerHTML = `<p>Loading user info...</p>`;
   
     auth0.client.userInfo(accessToken, (err, user) => {
@@ -80,6 +81,7 @@ const auth0 = new auth0.WebAuth({
         return;
       }
   
+      // Display the user's name and profile picture
       userInfoDiv.innerHTML = `
         <div style="display: flex; align-items: center;">
           <img src="${user.picture}" alt="User Avatar" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 10px;">
@@ -93,8 +95,8 @@ const auth0 = new auth0.WebAuth({
   
   // On page load, check if returning from Auth0 login and handle session
   window.onload = () => {
-    handleAuthentication();
+    handleAuthentication(); // Handle authentication if redirected back from Auth0
     if (isAuthenticated()) {
-      displayUserInfo();
+      displayUserInfo(); // Display user info if already authenticated
     }
   };
