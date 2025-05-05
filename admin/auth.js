@@ -1,7 +1,7 @@
 // Initialize the Auth0 WebAuth client
 const auth0Client = new auth0.WebAuth({
-    domain: "auth.ryanspace.cat", // Your Auth0 domain
-    clientID: "d5BMj4LU98sAvvgQwgIHiDJfVSyha3VC", // Your Auth0 Client ID
+    domain: "auth.ryanspace.cat", // Auth0 domain
+    clientID: "d5BMj4LU98sAvvgQwgIHiDJfVSyha3VC", // Auth0 Client ID
     redirectUri: "https://ryanspace.cat/admin/", // Redirect URI after login
     responseType: "token id_token", // Receive access and ID tokens
     scope: "openid profile email" // Request user info scopes
