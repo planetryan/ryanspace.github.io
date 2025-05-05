@@ -14,11 +14,13 @@ const auth0 = new auth0.WebAuth({
   
   // Function to handle login
   function login() {
+    console.log("Login button clicked"); // Debugging statement
     auth0.authorize();
   }
   
   // Function to handle logout
   function logout() {
+    console.log("Logout button clicked"); // Debugging statement
     auth0.logout({
       returnTo: "https://ryanspace.cat/admin/", // Redirect after logout
       clientID: "d5BMj4LU98sAvvgQwgIHiDJfVSyha3VC", // Required for Auth0 logout
@@ -28,8 +30,10 @@ const auth0 = new auth0.WebAuth({
   
   // Function to handle authentication once the user is redirected back
   function handleAuthentication() {
+    console.log("Handling authentication..."); // Debugging statement
     auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
+        console.log("Authentication successful:", authResult); // Debugging statement
         window.location.hash = ""; // Clear the URL hash
         setSession(authResult); // Save the session data
         displayUserInfo(); // Fetch and display user info
@@ -42,6 +46,7 @@ const auth0 = new auth0.WebAuth({
   
   // Function to save session data in sessionStorage
   function setSession(authResult) {
+    console.log("Setting session..."); // Debugging statement
     sessionStorage.setItem("access_token", authResult.accessToken);
     sessionStorage.setItem("id_token", authResult.idToken);
     sessionStorage.setItem(
@@ -52,6 +57,7 @@ const auth0 = new auth0.WebAuth({
   
   // Function to clear session data
   function clearSession() {
+    console.log("Clearing session..."); // Debugging statement
     sessionStorage.removeItem("access_token");
     sessionStorage.removeItem("id_token");
     sessionStorage.removeItem("expires_at");
@@ -72,6 +78,7 @@ const auth0 = new auth0.WebAuth({
     if (!accessToken) return;
   
     // Show loading message while fetching user info
+    console.log("Fetching user info..."); // Debugging statement
     userInfoDiv.innerHTML = `<p>Loading user info...</p>`;
   
     auth0.client.userInfo(accessToken, (err, user) => {
@@ -81,6 +88,7 @@ const auth0 = new auth0.WebAuth({
         return;
       }
   
+      console.log("User info fetched successfully:", user); // Debugging statement
       // Display the user's name and profile picture
       userInfoDiv.innerHTML = `
         <div style="display: flex; align-items: center;">
@@ -95,8 +103,13 @@ const auth0 = new auth0.WebAuth({
   
   // On page load, check if returning from Auth0 login and handle session
   window.onload = () => {
+    console.log("Page loaded..."); // Debugging statement
     handleAuthentication(); // Handle authentication if redirected back from Auth0
     if (isAuthenticated()) {
       displayUserInfo(); // Display user info if already authenticated
     }
   };
+  
+  // Attach event listeners
+  loginButton.addEventListener("click", login);
+  logoutButton.addEventListener("click", logout);

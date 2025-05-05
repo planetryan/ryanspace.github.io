@@ -1,7 +1,4 @@
 <!doctype html>
-<script src="https://cdn.auth0.com/js/auth0/9.19/auth0.min.js"></script>
-<script src="/admin/auth.js" defer></script>
-<script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.min.js"></script>
 <html>
   <head>
     <title>Administration de RyanSpace</title>
@@ -66,7 +63,7 @@
       .btn-logout {
         background-color: #f44336;
         color: white;
-        display: none;
+        display: none; /* Hide by default */
       }
 
       .btn-logout:hover {
@@ -104,6 +101,16 @@
       <div id="user-info" class="user-info"></div>
     </div>
 
+    <!-- Scripts -->
+    <!-- Load the Auth0 Library -->
+    <script src="https://cdn.auth0.com/js/auth0/9.19/auth0.min.js"></script>
+
+    <!-- Load Custom Auth Script -->
+    <script src="/admin/auth.js" defer></script>
+
+    <!-- Load Netlify CMS -->
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.min.js"></script>
+
     <script>
       // Initialize Netlify CMS
       if (typeof CMS !== 'undefined') {
@@ -112,8 +119,5 @@
         console.error("Netlify CMS failed to load.");
       }
     </script>
-
-    <!-- Custom Auth Script -->
-    <script src="/admin/auth.js" defer></script>
   </body>
 </html>
