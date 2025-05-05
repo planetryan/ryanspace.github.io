@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RyanSpace</title>
+  <title>Galeria d’Imatges - RyanSpace</title>
   <link rel="icon" href="/images/channels4_profile.ico" sizes="32x32" />
   <style>
     * {
@@ -52,38 +52,27 @@
       justify-content: center;
     }
 
-    .post {
-      background: white;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      display: inline-block;
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery img {
       width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.02);
     }
 
     footer {
       background: #444;
       color: white;
       padding: 1rem;
-    }
-
-    @media (max-width: 1200px) {
-      header {
-        padding: 2rem 4%;
-      }
-
-      nav {
-        padding: 1rem 4%;
-      }
-
-      .container {
-        padding: 1rem 4%;
-      }
-
-      .post {
-        padding: 1.2rem;
-      }
     }
 
     @media (max-width: 768px) {
@@ -132,11 +121,12 @@
 <body>
 
 <header>
-  <h1>RyanSpace</h1>
-  <p>Benvinguts al RyanSpace!</p>
+  <h1>Galeria d’Imatges</h1>
+  <p>Algunes fotos i imatges interessants!</p>
 </header>
 
 <nav>
+  <a href="index.html">Inici</a>
   <a href="sobre_mi.html">Sobre Mi</a>
   <a href="contacte.html">Contacte</a>
   <a href="blog.html">Blog</a>
@@ -145,15 +135,17 @@
 </nav>
 
 <div class="container">
-  <section class="post">
-    <h3>
-      Aquesta és la pàgina d'inici, podeu consultar el meu bloc, sobre mi, contacte, imatges, etc. als enllaços de dalt.
-    </h3>
-  </section>
+  <div class="gallery">
+    <img src="imatges/foto1.jpg" alt="Foto 1">
+    <img src="imatges/foto2.jpg" alt="Foto 2">
+    <img src="imatges/foto3.jpg" alt="Foto 3">
+    <img src="imatges/foto4.jpg" alt="Foto 4">
+    <!-- Add more images as needed -->
+  </div>
 </div>
 
 <footer>
-  2025 RyanSpace - Tots els drets reservats.
+  &copy; 2025 RyanSpace - Tots els drets reservats.
 </footer>
 
 </body>
