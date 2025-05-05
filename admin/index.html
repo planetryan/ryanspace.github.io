@@ -1,13 +1,18 @@
 <!doctype html>
-<script src="/admin/auth.js" defer></script>
 <html>
   <head>
-    <title>Administation de RyanSpace</title>
+    <title>Administration de RyanSpace</title>
+    <link rel="stylesheet" href="/assets/css/main.css"> <!-- Link to the main CSS file -->
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.min.js"></script>
   </head>
   <body>
+    <button id="login-btn">Login</button>
+    <button id="logout-btn" style="display: none;">Logout</button>
+    <div id="user-info"></div>
+
     <script>
       CMS.init();
     </script>
+    <script src="/admin/auth.js" defer></script>
   </body>
 </html>
