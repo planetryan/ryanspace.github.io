@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Use the latest version of Jekyll supported
-gem "jekyll", "~> 4.4.2" # Updated to the latest version of Jekyll as of now
+gem "jekyll", "~> 4.4.1" # Updated to the latest version of Jekyll as of now
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 gem "minima", "~> 2.5"
