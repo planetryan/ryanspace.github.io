@@ -3,8 +3,8 @@ backend:
   repo: planetryan/ryanspace.github.io
   branch: main
 
-media_folder: "/images" # Folder for uploaded images
-public_folder: "/images" # Public path for uploaded images
+media_folder: "images"        # Relative to the repo root
+public_folder: "/images"      # Relative to the site root
 
 collections:
   - name: "posts"
@@ -13,10 +13,18 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Image", name: "image", widget: "image" }
-      - { label: "Categories", name: "categories", widget: "list" }
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+      - label: "Image"
+        name: "image"
+        widget: "image"
+      - label: "Categories"
+        name: "categories"
+        widget: "list"
 
   - name: "pages"
     label: "Pages"
@@ -24,5 +32,9 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
