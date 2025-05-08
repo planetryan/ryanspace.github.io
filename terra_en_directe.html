@@ -1,5 +1,20 @@
 <!DOCTYPE html>
 <html lang="ca">
+    <script>
+          const lang = (navigator.language || navigator.userLanguage).toLowerCase();
+  const useLang = lang.startsWith('ca') ? 'ca' : (translations[lang] ? lang : 'en');
+
+  if (useLang !== 'ca') {
+    const t = translations[useLang];
+    document.getElementById('welcome-text').textContent = t.welcome;
+    document.getElementById('nav-about').textContent = t.nav[0];
+    document.getElementById('nav-contact').textContent = t.nav[1];
+    document.getElementById('nav-images').textContent = t.nav[2];
+    document.getElementById('nav-code').textContent = t.nav[3];
+    document.getElementById('earth-link').textContent = t.earth;
+    document.getElementById('footer-text').textContent = t.footer;
+  }
+    </script>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
