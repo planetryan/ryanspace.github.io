@@ -141,9 +141,15 @@
           const continueBtn = document.getElementById("continue-btn");
           const greeting = document.getElementById("greeting");
           const message = document.getElementById("message");
-      
+          const dontShowAgainCheckbox = document.getElementById("dont-show-again");
+
           const userLanguage = navigator.language || navigator.userLanguage;
-      
+
+          // Check if the user has already opted out of the overlay
+          if (localStorage.getItem("dontShowOverlay") === "true") {
+            overlay.style.display = "none";
+          }
+
           if (userLanguage.startsWith('ca')) {
             // Catalan
             greeting.textContent = 'Benvingut a Terra en directe';
@@ -151,21 +157,38 @@
             continueBtn.textContent = 'Sí, continua';
           } else {
             // English
-            greeting.textContent = 'Welcome to Earth live imagery';
-            message.textContent = 'This website contains high-resolution satellite images. Do you want to continue?';
+            greeting.textContent = 'Welcome to Terra en directe';
+            message.textContent = 'This website contains high-resolution satellite images. Opening these images might cause poor performance or unexpected behavior. Do you want to continue?';
             continueBtn.textContent = 'Yes, continue';
+
           }
-      
+
           continueBtn.addEventListener("click", function () {
             overlay.style.display = "none"; // hide the overlay
+            // If the user selected "Don't show again", save the preference in localStorage
+            if (dontShowAgainCheckbox.checked) {
+              localStorage.setItem("dontShowOverlay", "true");
+            }
           });
         });
       </script>
-      
+
+      <div id="entry-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem; flex-direction: column;">
+        <div>
+          <h2 id="greeting"></h2>
+          <p id="message"></p>
+          <label>
+            <input type="checkbox" id="dont-show-again" />
+            Don't show again
+          </label>
+          <br />
+          <button id="continue-btn">Continue</button>
+        </div>
+      </div>
 
 <header>
   <h1>Terra en directe</h1>
-  <p>Algunes fotos i imatges en directe desde el Terra en directe</p>
+  <p>Algunes fotos i imatges en directe des de la Terra</p>
 </header>
 
 <nav>
@@ -269,42 +292,22 @@
       </div>
     </section>
   </div>
-  
 
-<!-- GOES STATIC IMAGE ROOT GEOCOLOUR DIRECTORY:
+  <!-- GOES STATIC IMAGE ROOT GEOCOLOUR DIRECTORY:
     https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/
 
-FENGYUN SOURCE DIRECTORY
-https://img.nsmc.org.cn/ (you will get error 403, maybe because China doesnt like random API requests, but static images do work.)
+    FENGYUN SOURCE DIRECTORY
+    https://img.nsmc.org.cn/ (you will get error 403, maybe because China doesnt like random API requests, but static images do work.)
 
-FENGYUN INDIRECT SOURCES ARE HERE: https://www.nsmc.org.cn/nsmc/en/image/gallery.html
+    FENGYUN INDIRECT SOURCES ARE HERE: https://www.nsmc.org.cn/nsmc/en/image/gallery.html
 
-EUMETSTAT STATIC IMAGE ROOT DIRECTORY:
+    EUMETSTAT STATIC IMAGE ROOT DIRECTORY:
     https://eumetview.eumetsat.int/static-images/latestImages/
 -->
 
 <footer>
-  2025 RyanSpace - Tots els drets reservats.
+  2025 RyanSpace - Tots els drets reservats
 </footer>
-
-<!--CONFIRM SCRIPT-->
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const links = document.querySelectorAll(".gallery a");
-  
-      links.forEach(link => {
-        link.addEventListener("click", function (e) {
-          const message = "Warning: High Resolution Images and Videos, Opening it may cause your device to crash or have unexpected behavior";
-          const confirmClick = confirm(message);
-          if (!confirmClick) {
-            e.preventDefault(); // stop opening the image if user cancels
-          }
-        });
-      });
-    });
-  </script>
-  
 
 </body>
 </html>
