@@ -15,6 +15,7 @@
 
     html, body {
       height: 100%;
+      min-height: 100vh; /* Ensures full viewport height */
       font-family: sans-serif;
       line-height: 1.6;
       background: #f9f9f9;
@@ -47,7 +48,7 @@
       max-width: 1200px;
       width: 100%;
       margin: auto;
-      flex: 1;
+      flex: 1; /* Ensures container takes up remaining space */
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -77,17 +78,16 @@
     }
 
     .gallery figure {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.gallery figcaption {
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
-  color: #666;
-}
-
+    .gallery figcaption {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #666;
+    }
 
     @media (max-width: 768px) {
       nav {
@@ -136,7 +136,7 @@
 
 <header>
   <h1>Galeria d’Imatges</h1>
-  <p>Algunes fotos i imatges que yo produci</p>
+  <p>Algunes fotos i imatges que jo produï</p>
 </header>
 
 <nav>
@@ -148,37 +148,37 @@
   <a href="https://github.com/planetryan/ryanspace.github.io" target="_blank">Codi Font</a>
 </nav>
 
-<div class="gallery">
-  <figure>
-    <a href="/assets/imatges/terra_spaceengine.jpeg" target="_blank">
-      <img src="/assets/imatges/terra_spaceengine.jpeg" alt="Terra generada a SpaceEngine">
-    </a>
-    <figcaption>Terra generada a SpaceEngine</figcaption>
-  </figure>
+<div class="container">
+  <div class="gallery">
+    <figure>
+      <a href="/assets/imatges/terra_spaceengine.jpeg" target="_blank">
+        <img src="/assets/imatges/terra_spaceengine.jpeg" alt="Terra generada a SpaceEngine">
+      </a>
+      <figcaption>Terra generada a SpaceEngine</figcaption>
+    </figure>
 
-  <figure>
-    <a href="/assets/gif/nasa-worldview-2025 MAR 28-to-2025 MAY 06.gif" target="_blank">
-      <img src="/assets/gif/nasa-worldview-2025 MAR 28-to-2025 MAY 06.gif " alt="Timelapse de la cobertura de núvols del 28 de març al 6 de maig de Catalunya">
-    </a>
-    <figcaption>Timelapse de la cobertura de núvols del 28 de març al 6 de maig de Catalunya</figcaption>
-  </figure>
+    <figure>
+      <a href="/assets/gif/nasa-worldview-2025 MAR 28-to-2025 MAY 06.gif" target="_blank">
+        <img src="/assets/gif/nasa-worldview-2025 MAR 28-to-2025 MAY 06.gif" alt="Timelapse de la cobertura de núvols del 28 de març al 6 de maig de Catalunya">
+      </a>
+      <figcaption>Timelapse de la cobertura de núvols del 28 de març al 6 de maig de Catalunya</figcaption>
+    </figure>
 
-  <figure>
-    <a href="/assets/gif/nasa-worldview-2025 MAR 29-to-2025 MAY 06.gif" target="_blank">
-    <img src="/assets/gif/nasa-worldview-2025 MAR 29-to-2025 MAY 06.gif" alt="Timelapse de Barça de març 29 al 6 de maig">
-    </a>
-    <figcaption>Timelapse de Barça de març 29 al 6 de maig</figcaption>
-  </figure>
+    <figure>
+      <a href="/assets/gif/nasa-worldview-2025 MAR 29-to-2025 MAY 06.gif" target="_blank">
+        <img src="/assets/gif/nasa-worldview-2025 MAR 29-to-2025 MAY 06.gif" alt="Timelapse de Barça de març 29 al 6 de maig">
+      </a>
+      <figcaption>Timelapse de Barça de març 29 al 6 de maig</figcaption>
+    </figure>
 
-  <figure>
-    <a href="#" target="_blank">
-      <img src=" " alt="Foto 4">
-    </a>
-    <figcaption>Descripció de la Foto 4</figcaption>
-  </figure>
+    <figure>
+      <a href="#" target="_blank">
+        <img src=" " alt="Foto 4">
+      </a>
+      <figcaption>Descripció de la Foto 4</figcaption>
+    </figure>
+  </div>
 </div>
-
-
 
 <footer>
   2025 RyanSpace - Tots els drets reservats.
