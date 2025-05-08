@@ -259,5 +259,24 @@ EUMETSTAT STATIC IMAGE ROOT DIRECTORY:
   2025 RyanSpace - Tots els drets reservats.
 </footer>
 
+<!--CONFIRM SCRIPT-->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const links = document.querySelectorAll(".gallery a");
+  
+      links.forEach(link => {
+        link.addEventListener("click", function (e) {
+          const message = "Warning: High Resolution Image, Opening it may cause your device to crash or have unexpected behavior";
+          const confirmClick = confirm(message);
+          if (!confirmClick) {
+            e.preventDefault(); // stop opening the image if user cancels
+          }
+        });
+      });
+    });
+  </script>
+  
+
 </body>
 </html>
