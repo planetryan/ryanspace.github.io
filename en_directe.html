@@ -6,7 +6,6 @@
   <title>Terra en directe - RyanSpace</title>
   <link rel="icon" href="/images/channels4_profile.ico" sizes="32x32" />
   <style>
-
     * {
       margin: 0;
       padding: 0;
@@ -15,7 +14,7 @@
 
     html, body {
       height: 100%;
-      min-height: 100vh; /* Ensures full viewport height */
+      min-height: 100vh;
       font-family: sans-serif;
       line-height: 1.6;
       background: #f9f9f9;
@@ -48,7 +47,7 @@
       max-width: 1200px;
       width: 100%;
       margin: auto;
-      flex: 1; /* Ensures container takes up remaining space */
+      flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -62,6 +61,8 @@
 
     .gallery img {
       width: 100%;
+      max-height: 500px;
+      object-fit: contain;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       transition: transform 0.2s;
@@ -143,14 +144,12 @@
   <a href="index.html">Inici</a>
   <a href="sobre_mi.html">Sobre Mi</a>
   <a href="contacte.html">Contacte</a>
-  <!-- <a href="blog.html">Blog</a>
-  <a href="imatges.html">Imatges</a> -->
   <a href="https://github.com/planetryan/ryanspace.github.io" target="_blank">Codi Font</a>
-  <a href="https://www.nsmc.org.cn/geo/index.en.html"> FengYun Satellite image composite video</a> 
+  <a href="https://www.nsmc.org.cn/geo/index.en.html">FengYun Satellite image composite video</a> 
 </nav>
 
 <div class="container">
-  <div class="Terra en directe">
+  <div class="gallery">
     <figure>
       <a href="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/10848x10848.jpg" target="_blank">
         <img src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/10848x10848.jpg" alt="GOES East en directe">
@@ -160,7 +159,7 @@
 
     <figure>
       <a href="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/10848x10848.jpg" target="_blank">
-        <img src="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/10848x10848.jpg" alt="GOES West en directe"
+        <img src="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/10848x10848.jpg" alt="GOES West en directe">
       </a>
       <figcaption>GOES West en directe</figcaption>
     </figure>
@@ -180,19 +179,18 @@
     </figure>
 
     <figure>
-        <a href="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.24h.mp4" target="_blank">
-          <img src="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.24h.mp4" alt="FengYun Satellite image composite video 24h">
-        </a>
-        <figcaption>FengYun Satellite image composite video 24h</figcaption>
-      </figure>
+      <a href="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.24h.mp4" target="_blank">
+        <img src="/assets/images/video-preview.jpg" alt="FengYun Satellite image composite video 24h">
+      </a>
+      <figcaption>FengYun Satellite image composite video 24h</figcaption>
+    </figure>
 
-      <figure>
-        <a href="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.24h.mp4" target="_blank">
-          <img src="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.24h.mp4" alt="FengYun Satellite image composite full disk video 24h">
-        </a>
-        <figcaption>FengYun Satellite image composite full disk video 24h</figcaption>
-      </figure>
-
+    <figure>
+      <a href="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.24h.mp4" target="_blank">
+        <img src="/assets/images/video-preview.jpg" alt="FengYun Satellite image composite full disk video 24h">
+      </a>
+      <figcaption>FengYun Satellite image composite full disk video 24h</figcaption>
+    </figure>
   </div>
 </div>
 
@@ -204,6 +202,7 @@
 EUMETSTAT STATIC IMAGE ROOT DIRECTORY:
     https://eumetview.eumetsat.int/static-images/latestImages/
 -->
+
 <footer>
   2025 RyanSpace - Tots els drets reservats.
 </footer>
