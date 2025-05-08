@@ -6,6 +6,7 @@
   <title>Galeria d’Imatges - RyanSpace</title>
   <link rel="icon" href="/images/channels4_profile.ico" sizes="32x32" />
   <style>
+
     * {
       margin: 0;
       padding: 0;
@@ -75,6 +76,19 @@
       padding: 1rem;
     }
 
+    .gallery figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+
     @media (max-width: 768px) {
       nav {
         text-align: center;
@@ -122,7 +136,7 @@
 
 <header>
   <h1>Galeria d’Imatges</h1>
-  <p>Algunes fotos i imatges interessants!</p>
+  <p>Algunes fotos i imatges que yo produci</p>
 </header>
 
 <nav>
@@ -134,14 +148,37 @@
   <a href="https://github.com/planetryan/ryanspace.github.io" target="_blank">Codi Font</a>
 </nav>
 
-<div class="container">
-  <div class="gallery">
-    <img src="/assets/imatges/terra_spaceengine.jpeg" alt="Foto 1">
-    <img src=" " alt="Foto 2">
-    <img src=" " alt="Foto 3">
-    <img src=" " alt="Foto 4">
-  </div>
+<div class="gallery">
+  <figure>
+    <a href="/assets/imatges/terra_spaceengine.jpeg" target="_blank">
+      <img src="/assets/imatges/terra_spaceengine.jpeg" alt="Terra generada a SpaceEngine">
+    </a>
+    <figcaption>Terra generada a SpaceEngine</figcaption>
+  </figure>
+
+  <figure>
+    <a href="#" target="_blank">
+      <img src=" " alt="Foto 2">
+    </a>
+    <figcaption>Descripció de la Foto 2</figcaption>
+  </figure>
+
+  <figure>
+    <a href="#" target="_blank">
+      <img src=" " alt="Foto 3">
+    </a>
+    <figcaption>Descripció de la Foto 3</figcaption>
+  </figure>
+
+  <figure>
+    <a href="#" target="_blank">
+      <img src=" " alt="Foto 4">
+    </a>
+    <figcaption>Descripció de la Foto 4</figcaption>
+  </figure>
 </div>
+
+
 
 <footer>
   &copy; 2025 RyanSpace - Tots els drets reservats.
