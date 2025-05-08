@@ -68,24 +68,6 @@
       padding: 1rem;
     }
 
-    @media (max-width: 1200px) {
-      header {
-        padding: 2rem 4%;
-      }
-
-      nav {
-        padding: 1rem 4%;
-      }
-
-      .container {
-        padding: 1rem 4%;
-      }
-
-      .post {
-        padding: 1.2rem;
-      }
-    }
-
     @media (max-width: 768px) {
       nav {
         text-align: center;
@@ -133,30 +115,54 @@
 
 <header>
   <h1>RyanSpace</h1>
-  <p>Benvinguts al RyanSpace!</p>
+  <p id="welcome-text">Benvinguts al RyanSpace!</p>
 </header>
 
 <nav>
-  <a href="sobre_mi.html">Sobre Mi</a>
-  <a href="contacte.html">Contacte</a>
- <!-- <a href="blog.html">Blog</a> -->
-  <a href="imatges.html">Imatges</a>
-  <a href="https://github.com/planetryan/ryanspace.github.io" target="_blank">Codi Font</a>
+  <a href="sobre_mi.html" id="nav-about">Sobre Mi</a>
+  <a href="contacte.html" id="nav-contact">Contacte</a>
+  <!-- <a href="blog.html">Blog</a> -->
+  <a href="imatges.html" id="nav-images">Imatges</a>
+  <a href="https://github.com/planetryan/ryanspace.github.io" target="_blank" id="nav-code">Codi Font</a>
 </nav>
 
 <div class="container">
   <section class="post">
     <h3>
-
-     Res aquí per ara, encara no he decidit què posaré a la pàgina principal.
-      <!--<a href="/admin/index.html">Iniciar Sessió Aqui</a>-->
+      <a href="/terra_en_directe.html" id="earth-link">Feu clic aquí per veure la Terra en directe</a>
     </h3>
   </section>
 </div>
 
-<footer>
+<footer id="footer-text">
   2025 RyanSpace - Tots els drets reservats.
 </footer>
+
+<script>
+  const translations = {
+    en: {
+      welcome: "Welcome to RyanSpace!",
+      nav: ["About Me", "Contact", "Images", "Source Code"],
+      earth: 'Click here to view Terra En Directe - "Earth Images Live"',
+      footer: "2025 RyanSpace - All rights reserved."
+    },
+    // Extendable for other languages
+  };
+
+  const lang = (navigator.language || navigator.userLanguage).toLowerCase();
+  const useLang = lang.startsWith('ca') ? 'ca' : (translations[lang] ? lang : 'en');
+
+  if (useLang !== 'ca') {
+    const t = translations[useLang];
+    document.getElementById('welcome-text').textContent = t.welcome;
+    document.getElementById('nav-about').textContent = t.nav[0];
+    document.getElementById('nav-contact').textContent = t.nav[1];
+    document.getElementById('nav-images').textContent = t.nav[2];
+    document.getElementById('nav-code').textContent = t.nav[3];
+    document.getElementById('earth-link').textContent = t.earth;
+    document.getElementById('footer-text').textContent = t.footer;
+  }
+</script>
 
 </body>
 </html>

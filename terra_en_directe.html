@@ -142,27 +142,32 @@
           const greeting = document.getElementById("greeting");
           const message = document.getElementById("message");
           const dontShowAgainCheckbox = document.getElementById("dont-show-again");
-
+    
           const userLanguage = navigator.language || navigator.userLanguage;
-
+    
           // Check if the user has already opted out of the overlay
           if (localStorage.getItem("dontShowOverlay") === "true") {
             overlay.style.display = "none";
           }
-
+    
+          // Set content based on the user's language
           if (userLanguage.startsWith('ca')) {
             // Catalan
             greeting.textContent = 'Benvingut a Terra en directe';
             message.textContent = 'Aquesta web conté imatges d’alta resolució de satèl·lits. Vols continuar?';
             continueBtn.textContent = 'Sí, continua';
+          } else if (userLanguage.startsWith('es')) {
+            // Spanish (Fallback option)
+            greeting.textContent = 'Bienvenido a Terra en directo';
+            message.textContent = 'Este sitio web contiene imágenes de satélites de alta resolución. ¿Quieres continuar?';
+            continueBtn.textContent = 'Sí, continuar';
           } else {
-            // English
+            // Default to English
             greeting.textContent = 'Welcome to Terra en directe';
             message.textContent = 'This website contains high-resolution satellite images. Opening these images might cause poor performance or unexpected behavior. Do you want to continue?';
             continueBtn.textContent = 'Yes, continue';
-
           }
-
+    
           continueBtn.addEventListener("click", function () {
             overlay.style.display = "none"; // hide the overlay
             // If the user selected "Don't show again", save the preference in localStorage
@@ -171,7 +176,8 @@
             }
           });
         });
-      </script>
+    </script>
+    
 
       <div id="entry-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem; flex-direction: column;">
         <div>

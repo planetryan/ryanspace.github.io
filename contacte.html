@@ -132,6 +132,44 @@
     }
   </style>
 </head>
+
+<script>
+  const userLang = navigator.language || navigator.userLanguage;
+
+  // Set default language as English if no recognizable language is detected
+  if (userLang.startsWith('ca')) {
+    // Catalan
+    document.querySelector('header p').textContent = 'Contacte amb RyanSpace';
+    document.querySelectorAll('nav a')[0].textContent = 'Inici';
+    document.querySelectorAll('nav a')[1].textContent = 'Sobre Mi';
+    document.querySelector('footer').textContent = '2025 RyanSpace - Tots els drets reservats.';
+    document.querySelector('.post h2').textContent = 'Els meus enllaços:';
+    document.querySelectorAll('.post h3')[0].textContent = 'GitHub:';
+    document.querySelectorAll('.post h4')[0].querySelector('a').textContent = 'Fes clic aquí';
+    document.querySelectorAll('.post h3')[1].textContent = 'YouTube:';
+    document.querySelectorAll('.post h4')[1].querySelector('a').textContent = 'Fes clic aquí';
+    document.querySelectorAll('.post h3')[2].textContent = 'Discord:';
+    document.querySelectorAll('.post h4')[2].innerHTML = 'En Discord sóc <strong>planetryan</strong>';
+    document.querySelectorAll('.post h3')[3].textContent = 'Mastodon (no faig servir tant):';
+    document.querySelectorAll('.post h4')[3].querySelector('a').textContent = 'Fes clic aquí';
+  } else {
+    // Fallback to English
+    document.querySelector('header p').textContent = 'Contact RyanSpace';
+    document.querySelectorAll('nav a')[0].textContent = 'Home';
+    document.querySelectorAll('nav a')[1].textContent = 'About Me';
+    document.querySelector('footer').textContent = '2025 RyanSpace - All rights reserved.';
+    document.querySelector('.post h2').textContent = 'My links:';
+    document.querySelectorAll('.post h3')[0].textContent = 'GitHub:';
+    document.querySelectorAll('.post h4')[0].querySelector('a').textContent = 'Click here';
+    document.querySelectorAll('.post h3')[1].textContent = 'YouTube:';
+    document.querySelectorAll('.post h4')[1].querySelector('a').textContent = 'Click here';
+    document.querySelectorAll('.post h3')[2].textContent = 'Discord:';
+    document.querySelectorAll('.post h4')[2].innerHTML = 'On Discord I am <strong>planetryan</strong>';
+    document.querySelectorAll('.post h3')[3].textContent = 'Mastodon (I rarely use it):';
+    document.querySelectorAll('.post h4')[3].querySelector('a').textContent = 'Click here';
+  }
+</script>
+
 <body>
 
 <header>
@@ -142,9 +180,6 @@
 <nav>
   <a href="index.html">Inici</a>
   <a href="sobre_mi.html">Sobre Mi</a>
-<!--  <a href="#">Blog (no terminat)!</a>
-  <a href="#">Imatges (no terminat)!</a>
-  <a href="https://github.com/planetryan/ryanspace.github.io" target="_blank">Codi Font</a> -->
 </nav>
 
 <main class="container">

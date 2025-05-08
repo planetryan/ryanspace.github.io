@@ -135,17 +135,17 @@
 <body>
 
 <header>
-  <h1>Galeria d’Imatges</h1>
-  <p>Algunes fotos i imatges que jo produï</p>
+  <h1 id="gallery-title">Galeria d’Imatges</h1>
+  <p id="gallery-description">Algunes fotos i imatges que jo produï</p>
 </header>
 
 <nav>
-  <a href="index.html">Inici</a>
-  <a href="sobre_mi.html">Sobre Mi</a>
-  <a href="contacte.html">Contacte</a>
+  <a href="index.html" id="nav-home">Inici</a>
+  <a href="sobre_mi.html" id="nav-about">Sobre Mi</a>
+  <a href="contacte.html" id="nav-contact">Contacte</a>
   <!-- <a href="blog.html">Blog</a>
   <a href="imatges.html">Imatges</a> -->
-  <a href="https://github.com/planetryan/ryanspace.github.io" target="_blank">Codi Font</a>
+  <a href="https://github.com/planetryan/ryanspace.github.io" target="_blank" id="nav-code">Codi Font</a>
 </nav>
 
 <div class="container">
@@ -154,35 +154,72 @@
       <a href="/assets/imatges/terra_spaceengine.jpeg" target="_blank">
         <img src="/assets/imatges/terra_spaceengine.jpeg" alt="Terra generada a SpaceEngine">
       </a>
-      <figcaption>Terra generada a SpaceEngine</figcaption>
+      <figcaption id="fig1-caption">Terra generada a SpaceEngine</figcaption>
     </figure>
 
     <figure>
       <a href="/assets/gif/nasa-worldview-2025 MAR 28-to-2025 MAY 06.gif" target="_blank">
         <img src="/assets/gif/nasa-worldview-2025 MAR 28-to-2025 MAY 06.gif" alt="Timelapse de la cobertura de núvols del 28 de març al 6 de maig de Catalunya">
       </a>
-      <figcaption>Timelapse de la cobertura de núvols del 28 de març al 6 de maig de Catalunya</figcaption>
+      <figcaption id="fig2-caption">Timelapse de la cobertura de núvols del 28 de març al 6 de maig de Catalunya</figcaption>
     </figure>
 
     <figure>
       <a href="/assets/gif/nasa-worldview-2025 MAR 29-to-2025 MAY 06.gif" target="_blank">
         <img src="/assets/gif/nasa-worldview-2025 MAR 29-to-2025 MAY 06.gif" alt="Timelapse de Nova York de març 29 al 6 de maig">
       </a>
-      <figcaption>Timelapse de Nova York de març 29 al 6 de maig</figcaption>
+      <figcaption id="fig3-caption">Timelapse de Nova York de març 29 al 6 de maig</figcaption>
     </figure>
 
     <figure>
       <a href="#" target="_blank">
         <img src=" " alt="Foto 4">
       </a>
-      <figcaption>Descripció de la Foto 4</figcaption>
+      <figcaption id="fig4-caption">Descripció de la Foto 4</figcaption>
     </figure>
   </div>
 </div>
 
 <footer>
-  2025 RyanSpace - Tots els drets reservats.
+  <p id="footer-text">2025 RyanSpace - Tots els drets reservats.</p>
 </footer>
+
+<script>
+  const translations = {
+    en: {
+      galleryTitle: "Image Gallery",
+      galleryDesc: "Some photos and images I have created",
+      fig1: "Earth generated in SpaceEngine",
+      fig2: "Timelapse of cloud coverage from March 28 to May 6 in Catalonia",
+      fig3: "Timelapse of New York from March 29 to May 6",
+      fig4: "Description of Photo 4",
+      navHome: "Home",
+      navAbout: "About Me",
+      navContact: "Contact",
+      navCode: "Source Code",
+      footer: "2025 RyanSpace - All rights reserved."
+    },
+    // Extendable for other languages
+  };
+
+  const lang = (navigator.language || navigator.userLanguage).toLowerCase();
+  const useLang = lang.startsWith('ca') ? 'ca' : (translations[lang] ? lang : 'en');
+
+  if (useLang !== 'ca') {
+    const t = translations[useLang];
+    document.getElementById('gallery-title').textContent = t.galleryTitle;
+    document.getElementById('gallery-description').textContent = t.galleryDesc;
+    document.getElementById('fig1-caption').textContent = t.fig1;
+    document.getElementById('fig2-caption').textContent = t.fig2;
+    document.getElementById('fig3-caption').textContent = t.fig3;
+    document.getElementById('fig4-caption').textContent = t.fig4;
+    document.getElementById('nav-home').textContent = t.navHome;
+    document.getElementById('nav-about').textContent = t.navAbout;
+    document.getElementById('nav-contact').textContent = t.navContact;
+    document.getElementById('nav-code').textContent = t.navCode;
+    document.getElementById('footer-text').textContent = t.footer;
+  }
+</script>
 
 </body>
 </html>
