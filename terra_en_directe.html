@@ -135,6 +135,34 @@
 </head>
 <body>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const overlay = document.getElementById("entry-overlay");
+          const continueBtn = document.getElementById("continue-btn");
+          const greeting = document.getElementById("greeting");
+          const message = document.getElementById("message");
+      
+          const userLanguage = navigator.language || navigator.userLanguage;
+      
+          if (userLanguage.startsWith('ca')) {
+            // Catalan
+            greeting.textContent = 'Benvingut a Terra en directe';
+            message.textContent = 'Aquesta web conté imatges d’alta resolució de satèl·lits. Vols continuar?';
+            continueBtn.textContent = 'Sí, continua';
+          } else {
+            // English
+            greeting.textContent = 'Welcome to Earth live imagery';
+            message.textContent = 'This website contains high-resolution satellite images. Do you want to continue?';
+            continueBtn.textContent = 'Yes, continue';
+          }
+      
+          continueBtn.addEventListener("click", function () {
+            overlay.style.display = "none"; // hide the overlay
+          });
+        });
+      </script>
+      
+
 <header>
   <h1>Terra en directe</h1>
   <p>Algunes fotos i imatges en directe desde el Terra en directe</p>
