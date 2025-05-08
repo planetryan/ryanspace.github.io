@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terra en directe - RyanSpace</title>
+  <link rel="icon" href="/images/channels4_profile.ico" sizes="32x32" />
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      min-height: 100vh; /* Ensures full viewport height */
+      font-family: sans-serif;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    header {
+      background: #444;
+      color: white;
+      padding: 2rem 5%;
+    }
+
+    nav {
+      background: #eee;
+      padding: 1rem 5%;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #444;
+      display: inline-block;
+    }
+
+    .container {
+      padding: 2rem 5%;
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+      flex: 1; /* Ensures container takes up remaining space */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.02);
+    }
+
+    footer {
+      background: #444;
+      color: white;
+      padding: 1rem;
+    }
+
+    .gallery figure {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .gallery figcaption {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      .container {
+        padding: 1rem 2%;
+      }
+
+      header {
+        padding: 1.5rem 3%;
+      }
+
+      footer {
+        font-size: 0.9rem;
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 1.2rem 2%;
+      }
+
+      nav {
+        padding: 1rem 2%;
+      }
+
+      .container {
+        padding: 0.5rem 2%;
+      }
+
+      footer {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Data GOES i NASA de el Terra en directe</h1>
+  <p>Algunes fotos i imatges en directe desde el Terra de GOES i NASA</p>
+</header>
+
+<nav>
+  <a href="index.html">Inici</a>
+  <a href="sobre_mi.html">Sobre Mi</a>
+  <a href="contacte.html">Contacte</a>
+  <!-- <a href="blog.html">Blog</a>
+  <a href="imatges.html">Imatges</a> -->
+  <a href="https://github.com/planetryan/ryanspace.github.io" target="_blank">Codi Font</a>
+  <a href="https://www.nsmc.org.cn/geo/index.en.html"> FengYun Satellite image composite video</a> 
+</nav>
+
+<div class="container">
+  <div class="Terra en directe">
+    <figure>
+      <a href="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/10848x10848.jpg" target="_blank">
+        <img src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/10848x10848.jpg" alt="GOES East en directe">
+      </a>
+      <figcaption>GOES East en directe</figcaption>
+    </figure>
+
+    <figure>
+      <a href="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/10848x10848.jpg" target="_blank">
+        <img src="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/10848x10848.jpg" alt="GOES West en directe"
+      </a>
+      <figcaption>GOES West en directe</figcaption>
+    </figure>
+
+    <figure>
+      <a href="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSGIODC_RGBNatColourEnhncd_FullResolution.jpg" target="_blank">
+        <img src="/assets/gif/nasa-worldview-2025 MAR 29-to-2025 MAY 06.gif" alt="EUMETSAT_MSGIODC_RGBNatColourEnhncd (45)">
+      </a>
+      <figcaption>EUMETSAT_MSGIODC_RGBNatColourEnhncd [per amb EUMETSTAT 45]</figcaption>
+    </figure>
+
+    <figure>
+      <a href="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_FullResolution.jpg" target="_blank">
+        <img src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_FullResolution.jpg" alt="EUMETSAT_MSGIODC_RGBNatColourEnhncd (0)">
+      </a>
+      <figcaption>EUMETSAT_MSGIODC_RGBNatColourEnhncd [per amb EUMETSTAT 0]</figcaption>
+    </figure>
+
+    <figure>
+        <a href="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.24h.mp4" target="_blank">
+          <img src="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.24h.mp4" alt="FengYun Satellite image composite video 24h">
+        </a>
+        <figcaption>FengYun Satellite image composite video 24h</figcaption>
+      </figure>
+
+      <figure>
+        <a href="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.24h.mp4" target="_blank">
+          <img src="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.24h.mp4" alt="FengYun Satellite image composite full disk video 24h">
+        </a>
+        <figcaption>FengYun Satellite image composite full disk video 24h</figcaption>
+      </figure>
+
+  </div>
+</div>
+
+<!-- GOES STATIC IMAGE ROOT GEOCOLOUR DIRECTORY:
+    https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/
+
+
+
+EUMETSTAT STATIC IMAGE ROOT DIRECTORY:
+    https://eumetview.eumetsat.int/static-images/latestImages/
+-->
+<footer>
+  2025 RyanSpace - Tots els drets reservats.
+</footer>
+
+</body>
+</html>
