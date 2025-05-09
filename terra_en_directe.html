@@ -629,133 +629,185 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <style>
   * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-html, body {
-  height: 100%;
-  min-height: 100vh;
-  font-family: sans-serif;
-  line-height: 1.6;
-  background: #f9f9f9;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-header {
-  background: #444;
-  color: white;
-  padding: 2rem 5%;
-}
-
-nav {
-  background: #eee;
-  padding: 1rem 5%;
-}
-
-nav a {
-  margin: 0 1rem;
-  text-decoration: none;
-  color: #444;
-  display: inline-block;
-}
-
-.container {
-  padding: 2rem 5%;
-  max-width: 1200px;
-  width: 100%;
-  margin: auto;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);  /* 3 videos per row */
-  gap: 1.5rem;
-  justify-items: center;  /* Centers the content in the grid */
-}
-
-.gallery img, .gallery video {
-  width: 100%;
-  max-height: 500px;
-  object-fit: contain;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
-}
-
-.gallery img:hover, .gallery video:hover {
-  transform: scale(1.02);
-}
-
-footer {
-  background: #444;
-  color: white;
-  padding: 1rem;
-}
-
-.gallery figure {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.gallery figcaption {
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
-  color: #666;
-}
-
-@media (max-width: 768px) {
-  nav {
+  html, body {
+    height: 100%;
+    min-height: 100vh;
+    font-family: sans-serif;
+    line-height: 1.6;
+    background: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
     text-align: center;
   }
 
-  nav a {
-    display: block;
-    margin: 0.5rem 0;
-  }
-
-  .container {
-    padding: 1rem 2%;
-  }
-
   header {
-    padding: 1.5rem 3%;
-  }
-
-  footer {
-    font-size: 0.9rem;
-    padding: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  header {
-    padding: 1.2rem 2%;
+    background: #444;
+    color: white;
+    padding: 2rem 5%;
   }
 
   nav {
-    padding: 1rem 2%;
+    background: #eee;
+    padding: 1rem 5%;
+  }
+
+  nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: #444;
+    display: inline-block;
   }
 
   .container {
-    padding: 0.5rem 2%;
+    padding: 2rem 5%;
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .gallery img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    cursor: pointer;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.02);
   }
 
   footer {
-    font-size: 0.8rem;
+    background: #444;
+    color: white;
+    padding: 1rem;
   }
-}
 
+  .gallery figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: #666;
+  }
+
+  /* Modal styles for full image or video view */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .modal img,
+  .modal video {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .modal-buttons {
+    position: absolute;
+    bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .modal-buttons button {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .modal-buttons button:hover {
+    background: #666;
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      text-align: center;
+    }
+
+    nav a {
+      display: block;
+      margin: 0.5rem 0;
+    }
+
+    .container {
+      padding: 1rem 2%;
+    }
+
+    header {
+      padding: 1.5rem 3%;
+    }
+
+    footer {
+      font-size: 0.9rem;
+      padding: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    header {
+      padding: 1.2rem 2%;
+    }
+
+    nav {
+      padding: 1rem 2%;
+    }
+
+    .container {
+      padding: 0.5rem 2%;
+    }
+
+    footer {
+      font-size: 0.8rem;
+    }
+  }
 </style>
+
 
 <!-- GOES STATIC IMAGE ROOT GEOCOLOUR DIRECTORY:
     https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/
