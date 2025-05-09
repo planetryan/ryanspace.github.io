@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="ca">
-    <script>
-          const lang = (navigator.language || navigator.userLanguage).toLowerCase();
-  const useLang = lang.startsWith('ca') ? 'ca' : (translations[lang] ? lang : 'en');
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const lang = (navigator.language || navigator.userLanguage).toLowerCase();
+  const useLang = lang.startsWith("ca") ? "ca" : (translations[lang] ? lang : "en");
 
-  if (useLang !== 'ca') {
+  if (useLang !== "ca") {
     const t = translations[useLang];
-    document.getElementById('welcome-text').textContent = t.welcome;
-    document.getElementById('nav-about').textContent = t.nav[0];
-    document.getElementById('nav-contact').textContent = t.nav[1];
-    document.getElementById('nav-images').textContent = t.nav[2];
-    document.getElementById('nav-code').textContent = t.nav[3];
-    document.getElementById('earth-link').textContent = t.earth;
-    document.getElementById('footer-text').textContent = t.footer;
+    if (t) {
+      document.getElementById("welcome-text")?.textContent = t.welcome;
+      document.getElementById("nav-about")?.textContent = t.nav[0];
+      document.getElementById("nav-contact")?.textContent = t.nav[1];
+      document.getElementById("nav-images")?.textContent = t.nav[2];
+      document.getElementById("nav-code")?.textContent = t.nav[3];
+      document.getElementById("earth-link")?.textContent = t.earth;
+      document.getElementById("footer-text")?.textContent = t.footer;
+    }
   }
-    </script>
+});
+</script>
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -325,6 +330,49 @@
     EUMETSTAT STATIC IMAGE ROOT DIRECTORY:
     https://eumetview.eumetsat.int/static-images/latestImages/
 -->
+
+
+<!--NASA EPIC API FETCH LATEST IMAGE-->
+
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const response = await fetch("https://epic.gsfc.nasa.gov/api/natural");
+    const data = await response.json();
+    if (!data.length) return;
+
+    const imageInfo = data[0];
+    const [year, month, day] = imageInfo.date.split(" ")[0].split("-");
+    const imageUrl = `https://epic.gsfc.nasa.gov/archive/natural/${year}/${month}/${day}/jpg/${imageInfo.image}.jpg`;
+
+    // Create matching figure element
+    const figure = document.createElement("figure");
+
+    const anchor = document.createElement("a");
+    anchor.href = imageUrl;
+    anchor.target = "_blank";
+
+    const img = document.createElement("img");
+    img.src = imageUrl;
+    img.alt = `NASA EPIC - ${imageInfo.caption}`;
+    img.className = "gallery-img";
+
+    const caption = document.createElement("figcaption");
+    caption.textContent = `NASA EPIC – ${imageInfo.caption}`;
+
+    anchor.appendChild(img);
+    figure.appendChild(anchor);
+    figure.appendChild(caption);
+
+    // Append to existing gallery container
+    document.querySelector(".gallery")?.appendChild(figure);
+  } catch (err) {
+    console.error("Failed to load NASA EPIC image", err);
+  }
+});
+</script>
+
+
 
 <footer>
   2025 RyanSpace - Tots els drets reservats

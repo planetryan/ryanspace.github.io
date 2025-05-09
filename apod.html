@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NASA APOD</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #000; color: #fff; text-align: center; padding: 2rem; }
+    h1 { margin-bottom: 0; }
+    #date { font-style: italic; color: #ccc; }
+    img, iframe { max-width: 90%; margin: 1rem 0; border-radius: 8px; }
+    .explanation { max-width: 800px; margin: 2rem auto; text-align: left; }
+    a { color: #00baff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1 id="title">APOD</h1>
+  <p id="date"></p>
+  <div id="media"></div>
+  <div class="explanation" id="explanation"></div>
+  <p><a href="index.html">← Back to Home</a></p>
+
+  <script>
+    const apiKey = "DEMO_KEY"; // im using public key, im not pasting my own API key here for obvious reasons
+    //if your reading this, then that means you would also see my api key, that would be pretty stupid to leave it hanging here.
+    const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
+
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("title").textContent = data.title;
+        document.getElementById("date").textContent = data.date;
+        document.getElementById("explanation").textContent = data.explanation;
+
+        const mediaContainer = document.getElementById("media");
+        if (data.media_type === "image") {
+          const img = document.createElement("img");
+          img.src = data.url;
+          img.alt = data.title;
+          mediaContainer.appendChild(img);
+        } else if (data.media_type === "video") {
+          const iframe = document.createElement("iframe");
+          iframe.src = data.url;
+          iframe.width = "100%";
+          iframe.height = "500";
+          iframe.allowFullscreen = true;
+          mediaContainer.appendChild(iframe);
+        }
+      })
+      .catch(err => {
+        document.getElementById("title").textContent = "Error loading APOD.";
+        console.error("NASA API error:", err);
+      });
+  </script>
+</body>
+</html>
