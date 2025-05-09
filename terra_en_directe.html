@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="ca">
-<link rel="icon" href="/images/channels4_profile.ico" sizes="32x32"/>
-
-</head>
-<body>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Terra en directe - RyanSpace</title>
-  <link rel="icon" href="/images/channels4_profile.ico" sizes="32x32" />
+  <link rel="icon" href="/images/channels4_profile.ico" sizes="32x32">
   <style>
+    /* General styles */
     * {
       margin: 0;
       padding: 0;
@@ -57,43 +54,58 @@
       justify-content: center;
     }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .gallery img {
-      width: 100%;
-      max-height: 500px;
-      object-fit: contain;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.02);
-    }
-
     footer {
       background: #444;
       color: white;
       padding: 1rem;
     }
 
+    /* Gallery styles */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
     .gallery figure {
       display: flex;
       flex-direction: column;
       align-items: center;
+      text-align: center;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
     .gallery figcaption {
       margin-top: 0.5rem;
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: #666;
     }
 
+    /* Specific styles for video gallery */
+    .video-figure img {
+      object-fit: cover;
+      border: 2px solid #ddd;
+      padding: 5px;
+    }
+
+    .video-figure img:hover {
+      border-color: #444;
+    }
+
+    /* Responsive adjustments */
     @media (max-width: 768px) {
       nav {
         text-align: center;
@@ -116,6 +128,14 @@
         font-size: 0.9rem;
         padding: 1rem;
       }
+
+      .gallery img {
+        max-height: 250px;
+      }
+
+      .gallery figcaption {
+        font-size: 0.9rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -134,175 +154,109 @@
       footer {
         font-size: 0.8rem;
       }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery img {
+        max-height: 200px;
+      }
+
+      .gallery figcaption {
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Terra en directe</h1>
+    <p>Algunes fotos i imatges en directe des de la Terra</p>
+  </header>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const overlay = document.getElementById("entry-overlay");
-          const continueBtn = document.getElementById("continue-btn");
-          const greeting = document.getElementById("greeting");
-          const message = document.getElementById("message");
-          const dontShowAgainCheckbox = document.getElementById("dont-show-again");
-    
-          const userLanguage = navigator.language || navigator.userLanguage;
-    
-          // Check if the user has already opted out of the overlay
-          if (localStorage.getItem("dontShowOverlay") === "true") {
-            overlay.style.display = "none";
-          }
-    
-          // Set content based on the user's language
-          if (userLanguage.startsWith('ca')) {
-            // Catalan
-            greeting.textContent = 'Benvingut a Terra en directe';
-            message.textContent = 'Aquesta web conté imatges d’alta resolució de satèl·lits. Vols continuar?';
-            continueBtn.textContent = 'Sí, continua';
-          } else if (userLanguage.startsWith('es')) {
-            // Spanish (Fallback option)
-            greeting.textContent = 'Bienvenido a Terra en directo';
-            message.textContent = 'Este sitio web contiene imágenes de satélites de alta resolución. ¿Quieres continuar?';
-            continueBtn.textContent = 'Sí, continuar';
-          } else {
-            // Default to English
-            greeting.textContent = 'Welcome to Terra en directe';
-            message.textContent = 'This website contains high-resolution satellite images. Opening these images might cause poor performance or unexpected behavior. Do you want to continue?';
-            continueBtn.textContent = 'Yes, continue';
-          }
-    
-          continueBtn.addEventListener("click", function () {
-            overlay.style.display = "none"; // hide the overlay
-            // If the user selected "Don't show again", save the preference in localStorage
-            if (dontShowAgainCheckbox.checked) {
-              localStorage.setItem("dontShowOverlay", "true");
-            }
-          });
-        });
-    </script>
-    
+  <nav>
+    <a href="index.html">Inici</a>
+    <a href="sobre_mi.html">Sobre Mi</a>
+    <a href="contacte.html">Contacte</a>
+    <a href="https://github.com/planetryan/ryanspace.github.io" target="_blank">Codi Font</a>
+  </nav>
 
-      <div id="entry-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem; flex-direction: column;">
-        <div>
-          <h2 id="greeting"></h2>
-          <p id="message"></p>
-          <label>
-            <input type="checkbox" id="dont-show-again" />
-            Don't show again
-          </label>
-          <br />
-          <button id="continue-btn">Continue</button>
-        </div>
+  <!-- IMATGES -->
+  <div class="container">
+    <section>
+      <h2>Imatges</h2>
+      <div class="gallery">
+        <figure>
+          <a href="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/10848x10848.jpg" target="_blank">
+            <img src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/1808x1808.jpg" alt="GOES East Full Disk">
+          </a>
+          <figcaption>GOES East Full Disk</figcaption>
+        </figure>
+        <figure>
+          <a href="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/10848x10848.jpg" target="_blank">
+            <img src="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/1808x1808.jpg" alt="GOES West Full Disk">
+          </a>
+          <figcaption>GOES West Full Disk</figcaption>
+        </figure>
+        <figure>
+          <a href="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSGIODC_RGBNatColourEnhncd_FullResolution.jpg" target="_blank">
+            <img src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSGIODC_RGBNatColourEnhncd_LowResolution.jpg" alt="EUMETSAT MSGIODC RGB">
+          </a>
+          <figcaption>EUMETSAT MSGIODC RGB</figcaption>
+        </figure>
+        <figure>
+          <a href="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_FullResolution.jpg" target="_blank">
+            <img src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_LowResolution.jpg" alt="EUMETSAT MSG RGB">
+          </a>
+          <figcaption>EUMETSAT MSG RGB</figcaption>
+        </figure>
+        <figure>
+          <a href="https://img.nsmc.org.cn/CLOUDIMAGE/FY3D/MIPS/FY3D_MERSI_GLOBAL.jpg" target="_blank">
+            <img src="https://img.nsmc.org.cn/CLOUDIMAGE/FY3D/MIPS/FY3D_MERSI_GLOBAL.jpg" alt="FY3D MERSI GLOBAL">
+          </a>
+          <figcaption>FY3D MERSI GLOBAL</figcaption>
+        </figure>
       </div>
+    </section>
+  </div>
 
-<header>
-  <h1>Terra en directe</h1>
-  <p>Algunes fotos i imatges en directe des de la Terra</p>
-</header>
-
-<nav>
-  <a href="index.html">Inici</a>
-  <a href="sobre_mi.html">Sobre Mi</a>
-  <a href="contacte.html">Contacte</a>
-  <a href="https://github.com/planetryan/ryanspace.github.io" target="_blank">Codi Font</a>
-  <!--<a href="https://www.nsmc.org.cn/geo/index.en.html">FengYun Satellite image composite video</a> -->
-</nav>
-
-<!-- IMATGES -->
-<div class="container">
-  <section>
-    <h2>Imatges</h2>
+  <!-- VIDEOS -->
+  <section style="margin-top: 3rem;">
+    <h2>Vídeos</h2>
     <div class="gallery">
-      <figure>
-        <a href="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/10848x10848.jpg" target="_blank">
-          <img src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/1808x1808.jpg" alt="GOES East Full Disk" data-src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/10848x10848.jpg" loading="lazy">
+      <figure class="video-figure">
+        <a href="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.24h.mp4" target="_blank">
+          <img src="/assets/imatges/videoframe_3962.png" alt="FengYun Satellite image composite video 24h">
         </a>
-        <figcaption>GOES East Full Disk</figcaption>
+        <figcaption>FengYun Satellite image composite video 24h</figcaption>
       </figure>
-      <figure>
-        <a href="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/10848x10848.jpg" target="_blank">
-          <img src="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/1808x1808.jpg" alt="GOES West Full Disk" data-src="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/10848x10848.jpg" loading="lazy">
+      <figure class="video-figure">
+        <a href="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.72h.mp4" target="_blank">
+          <img src="/assets/imatges/videoframe_3962.png" alt="FengYun Satellite image composite video 72h">
         </a>
-        <figcaption>GOES West Full Disk</figcaption>
+        <figcaption>FengYun Satellite image composite video 72h</figcaption>
       </figure>
-      <figure>
-        <a href="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSGIODC_RGBNatColourEnhncd_FullResolution.jpg" target="_blank">
-          <img src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSGIODC_RGBNatColourEnhncd_LowResolution.jpg" alt="EUMETSAT_MSGIODC_RGBNatColourEnhncd (45)" data-src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSGIODC_RGBNatColourEnhncd_FullResolution.jpg" loading="lazy">
+      <figure class="video-figure">
+        <a href="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/GCLR/VIDEO/FY4B.disk.gclr.24h.mp4" target="_blank">
+          <img src="/assets/imatges/vlcsnap-2025-05-08-16h28m20s211.png" alt="FengYun Satellite full disk video 24h">
         </a>
-        <figcaption>EUMETSAT_MSGIODC_RGBNatColourEnhncd [per amb EUMETSTAT 45]</figcaption>
+        <figcaption>FengYun Satellite full disk video 24h</figcaption>
       </figure>
-      <figure>
-        <a href="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_FullResolution.jpg" target="_blank">
-          <img src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_LowResolution.jpg" alt="EUMETSAT_MSGIODC_RGBNatColourEnhncd (0)" data-src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_FullResolution.jpg" loading="lazy">
+      <figure class="video-figure">
+        <a href="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/GCLR/VIDEO/FY4B.disk.gclr.72h.mp4" target="_blank">
+          <img src="/assets/imatges/vlcsnap-2025-05-08-16h28m20s211.png" alt="FengYun Satellite full disk video 72h">
         </a>
-        <figcaption>EUMETSAT_MSGIODC_RGBNatColourEnhncd [per amb EUMETSTAT 0]</figcaption>
+        <figcaption>FengYun Satellite full disk video 72h</figcaption>
       </figure>
-      <figure>
-        <a href="https://img.nsmc.org.cn/CLOUDIMAGE/FY3D/MIPS/FY3D_MERSI_GLOBAL.jpg" target="_blank">
-          <img src="https://img.nsmc.org.cn/CLOUDIMAGE/FY3D/MIPS/FY3D_MERSI_GLOBAL.jpg" alt="FY3D_MERSI_GLOBAL" data-src="https://img.nsmc.org.cn/CLOUDIMAGE/FY3D/MIPS/FY3D_MERSI_GLOBAL.jpg" loading="lazy">
+      <figure class="video-figure">
+        <a href="https://img.nsmc.org.cn/CLOUDIMAGE/FY2H/VIDEO/FY2H.br.72h.mp4" target="_blank">
+          <img src="/assets/imatges/videoframe_1280.png" alt="FY-2H Belt and Road regional video 72h">
         </a>
-        <figcaption>Global Image Mercador Projection: FengYun Latest Imagery</figcaption>
-      </figure>
-      <figure>
-        <a href="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/PIC/GBAL/GEOS_IMAGR_GBAL_L2_MOS_IRX_GLL_YYYYMMDD_HHmm_10KM_MS.jpg" target="_blank">
-          <img src="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/PIC/GBAL/GEOS_IMAGR_GBAL_L2_MOS_IRX_GLL_YYYYMMDD_HHmm_10KM_MS.jpg" alt="FY3D_MERSI_GLOBAL" data-src="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/PIC/GBAL/GEOS_IMAGR_GBAL_L2_MOS_IRX_GLL_YYYYMMDD_HHmm_10KM_MS.jpg" loading="lazy">
-        </a>
-        <figcaption>Global Image Mercador Projection</figcaption>
-      </figure>
-      <figure>
-        <a href="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/GCLR/FY4B_DISK_GCLR.JPG" target="_blank">
-          <img src="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/GCLR/FY4B_DISK_GCLR.JPG" alt="FY-4B full disk True Color image" data-src="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/GCLR/FY4B_DISK_GCLR.JPG" loading="lazy">
-        </a>
-        <figcaption>FY-4B full disk True Color image</figcaption>
-      </figure>
-      <figure>
-        <a href="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/SWCI/FY4B_DISK_SWCI.JPG" target="_blank">
-          <img src="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/SWCI/FY4B_DISK_SWCI.JPG" alt="FY-4B full-disk Sandwich image." data-src="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/SWCI/FY4B_DISK_SWCI.JPG" loading="lazy">
-        </a>
-        <figcaption>FY-4B full-disk Sandwich image.</figcaption>
+        <figcaption>FY-2H Belt and Road regional video 72h</figcaption>
       </figure>
     </div>
   </section>
-</div>
-
-<!-- VIDEOS -->
-<section style="margin-top: 3rem;">
-  <h2>Vídeos</h2>
-  <div class="gallery">
-    <figure class="video-figure">
-      <a href="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.24h.mp4" target="_blank">
-        <img src="/assets/imatges/videoframe_3962.png" alt="FengYun Satellite image composite video 24h">
-      </a>
-      <figcaption>FengYun Satellite image composite video 24h</figcaption>
-    </figure>
-    <figure class="video-figure">
-      <a href="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.72h.mp4" target="_blank">
-        <img src="/assets/imatges/videoframe_3962.png" alt="FengYun Satellite image composite video 72h">
-      </a>
-      <figcaption>FengYun Satellite image composite video 72h</figcaption>
-    </figure>
-    <figure class="video-figure">
-      <a href="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/GCLR/VIDEO/FY4B.disk.gclr.24h.mp4" target="_blank">
-        <img src="/assets/imatges/vlcsnap-2025-05-08-16h28m20s211.png" alt="FengYun Satellite image composite full disk video 24h">
-      </a>
-      <figcaption>FengYun Satellite image composite full disk video 24h</figcaption>
-    </figure>
-    <figure class="video-figure">
-      <a href="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/GCLR/VIDEO/FY4B.disk.gclr.72h.mp4" target="_blank">
-        <img src="/assets/imatges/vlcsnap-2025-05-08-16h28m20s211.png" alt="FengYun Satellite image composite full disk video 72h">
-      </a>
-      <figcaption>FengYun Satellite image composite full disk video 72h</figcaption>
-    </figure>
-    <figure class="video-figure">
-      <a href="https://img.nsmc.org.cn/CLOUDIMAGE/FY2H/VIDEO/FY2H.br.72h.mp4" target="_blank">
-        <img src="/assets/imatges/videoframe_1280.png" alt="FY-2H Belt and Road regional video 72h">
-      </a>
-      <figcaption>FY-2H Belt and Road regional video 72h</figcaption>
-    </figure>
-  </div>
-</section>
-
 
 <!-- GOES STATIC IMAGE ROOT GEOCOLOUR DIRECTORY:
     https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/
@@ -315,7 +269,6 @@
     EUMETSTAT STATIC IMAGE ROOT DIRECTORY:
     https://eumetview.eumetsat.int/static-images/latestImages/
 -->
-
 
 <!--NASA EPIC API FETCH LATEST IMAGE-->
 
@@ -330,9 +283,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const [year, month, day] = imageInfo.date.split(" ")[0].split("-");
     const imageUrl = `https://epic.gsfc.nasa.gov/archive/natural/${year}/${month}/${day}/jpg/${imageInfo.image}.jpg`;
 
-    // Create matching figure element
     const figure = document.createElement("figure");
-
     const anchor = document.createElement("a");
     anchor.href = imageUrl;
     anchor.target = "_blank";
@@ -349,16 +300,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     figure.appendChild(anchor);
     figure.appendChild(caption);
 
-    // Append to existing gallery container
     document.querySelector(".gallery")?.appendChild(figure);
   } catch (err) {
     console.error("Failed to load NASA EPIC image", err);
   }
 });
 </script>
-<footer>
-  2025 RyanSpace - Tots els drets reservats
-</footer>
 
+  <footer>
+    2025 RyanSpace - Tots els drets reservats
+  </footer>
 </body>
 </html>
