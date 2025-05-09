@@ -857,6 +857,7 @@ document.addEventListener("DOMContentLoaded", () => {
   box-sizing: border-box;
 }
 
+/* Base Styles */
 html, body {
   height: 100%;
   font-family: 'Arial', sans-serif;
@@ -904,13 +905,16 @@ nav a:focus {
   justify-content: center;
 }
 
+/* Gallery Styles */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
 }
 
-.gallery img {
+/* Image and Video Styles */
+.gallery img,
+.gallery video {
   width: 100%;
   max-height: 500px;
   object-fit: contain;
@@ -920,7 +924,8 @@ nav a:focus {
   cursor: pointer;
 }
 
-.gallery img:hover {
+.gallery img:hover,
+.gallery video:hover {
   transform: scale(1.02);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
@@ -943,7 +948,7 @@ footer {
   color: #666;
 }
 
-/* Modal styles for full image or video view */
+/* Modal Styles */
 .modal {
   display: none;
   position: fixed;
