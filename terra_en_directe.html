@@ -538,25 +538,25 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="gallery">
       <figure>
         <a href="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/10848x10848.jpg" target="_blank">
-          <img src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/10848x10848.jpg" alt="GOES East Full Disk" data-src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/10848x10848.jpg" loading="lazy">
+          <img src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/1808x1808.jpg" alt="GOES East Full Disk" data-src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/10848x10848.jpg" loading="lazy">
         </a>
         <figcaption>GOES East Full Disk</figcaption>
       </figure>
       <figure>
         <a href="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/10848x10848.jpg" target="_blank">
-          <img src="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/10848x10848.jpg" alt="GOES West Full Disk" data-src="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/10848x10848.jpg" loading="lazy">
+          <img src="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/1808x1808.jpg" alt="GOES West Full Disk" data-src="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/10848x10848.jpg" loading="lazy">
         </a>
         <figcaption>GOES West Full Disk</figcaption>
       </figure>
       <figure>
         <a href="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSGIODC_RGBNatColourEnhncd_FullResolution.jpg" target="_blank">
-          <img src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSGIODC_RGBNatColourEnhncd_FullResolution.jpg" alt="EUMETSAT_MSGIODC_RGBNatColourEnhncd (45)" data-src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSGIODC_RGBNatColourEnhncd_FullResolution.jpg" loading="lazy">
+          <img src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSGIODC_RGBNatColourEnhncd_LowResolution.jpg" alt="EUMETSAT_MSGIODC_RGBNatColourEnhncd (45)" data-src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSGIODC_RGBNatColourEnhncd_FullResolution.jpg" loading="lazy">
         </a>
         <figcaption>EUMETSAT_MSGIODC_RGBNatColourEnhncd [per amb EUMETSTAT 45]</figcaption>
       </figure>
       <figure>
         <a href="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_FullResolution.jpg" target="_blank">
-          <img src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_FullResolution.jpg" alt="EUMETSAT_MSGIODC_RGBNatColourEnhncd (0)" data-src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_FullResolution.jpg" loading="lazy">
+          <img src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_LowResolution.jpg" alt="EUMETSAT_MSGIODC_RGBNatColourEnhncd (0)" data-src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_FullResolution.jpg" loading="lazy">
         </a>
         <figcaption>EUMETSAT_MSGIODC_RGBNatColourEnhncd [per amb EUMETSTAT 0]</figcaption>
       </figure>
@@ -628,37 +628,133 @@ document.addEventListener("DOMContentLoaded", () => {
 <!--CSS FOR VIDEOS-->
 
 <style>
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Ensure 3 videos per row */
-    gap: 1rem;
-    padding: 0;
-    margin: 0;
-    justify-items: center; /* Center the items horizontally */
-  }
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .video-figure {
+html, body {
+  height: 100%;
+  min-height: 100vh;
+  font-family: sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+header {
+  background: #444;
+  color: white;
+  padding: 2rem 5%;
+}
+
+nav {
+  background: #eee;
+  padding: 1rem 5%;
+}
+
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #444;
+  display: inline-block;
+}
+
+.container {
+  padding: 2rem 5%;
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 3 videos per row */
+  gap: 1.5rem;
+  justify-items: center;  /* Centers the content in the grid */
+}
+
+.gallery video {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.gallery video:hover {
+  transform: scale(1.02);
+}
+
+footer {
+  background: #444;
+  color: white;
+  padding: 1rem;
+}
+
+.gallery figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  nav {
     text-align: center;
-    margin: 0;
-    padding: 0;
   }
 
-  .video-thumbnail {
-    max-width: 100%;
-    height: auto; /* Keep aspect ratio */
-    object-fit: cover; /* Ensure image fills the space without distortion */
-    transition: transform 0.3s ease-in-out;
+  nav a {
+    display: block;
+    margin: 0.5rem 0;
   }
 
-  .video-thumbnail:hover {
-    transform: scale(1.05); /* Slight zoom on hover for effect */
+  .container {
+    padding: 1rem 2%;
   }
 
-  figcaption {
-    font-size: 1rem;
-    color: #333;
-    margin-top: 0.5rem;
+  header {
+    padding: 1.5rem 3%;
   }
+
+  footer {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 1.2rem 2%;
+  }
+
+  nav {
+    padding: 1rem 2%;
+  }
+
+  .container {
+    padding: 0.5rem 2%;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
+}
+
 </style>
 
 <!-- GOES STATIC IMAGE ROOT GEOCOLOUR DIRECTORY:
