@@ -592,49 +592,73 @@ document.addEventListener("DOMContentLoaded", () => {
 <section style="margin-top: 3rem;">
   <h2>Vídeos</h2>
   <div class="gallery">
-    <figure>
+    <figure class="video-figure">
       <a href="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.24h.mp4" target="_blank">
-        <video src="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.24h.mp4" preload="none" poster="/assets/imatges/videoframe_3962.png" controls>
-          Your browser does not support the video tag.
-        </video>
+        <img src="/assets/imatges/videoframe_3962.png" alt="FengYun Satellite image composite video 24h">
       </a>
       <figcaption>FengYun Satellite image composite video 24h</figcaption>
     </figure>
-    <figure>
+    <figure class="video-figure">
       <a href="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.72h.mp4" target="_blank">
-        <video src="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.72h.mp4" preload="none" poster="/assets/imatges/videoframe_3962.png" controls>
-          Your browser does not support the video tag.
-        </video>
+        <img src="/assets/imatges/videoframe_3962.png" alt="FengYun Satellite image composite video 72h">
       </a>
       <figcaption>FengYun Satellite image composite video 72h</figcaption>
     </figure>
-    <figure>
+    <figure class="video-figure">
       <a href="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/GCLR/VIDEO/FY4B.disk.gclr.24h.mp4" target="_blank">
-        <video src="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/GCLR/VIDEO/FY4B.disk.gclr.24h.mp4" preload="none" poster="/assets/imatges/vlcsnap-2025-05-08-16h28m20s211.png" controls>
-          Your browser does not support the video tag.
-        </video>
+        <img src="/assets/imatges/vlcsnap-2025-05-08-16h28m20s211.png" alt="FengYun Satellite image composite full disk video 24h">
       </a>
       <figcaption>FengYun Satellite image composite full disk video 24h</figcaption>
     </figure>
-    <figure>
+    <figure class="video-figure">
       <a href="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/GCLR/VIDEO/FY4B.disk.gclr.72h.mp4" target="_blank">
-        <video src="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/GCLR/VIDEO/FY4B.disk.gclr.72h.mp4" preload="none" poster="/assets/imatges/vlcsnap-2025-05-08-16h28m20s211.png" controls>
-          Your browser does not support the video tag.
-        </video>
+        <img src="/assets/imatges/vlcsnap-2025-05-08-16h28m20s211.png" alt="FengYun Satellite image composite full disk video 72h">
       </a>
       <figcaption>FengYun Satellite image composite full disk video 72h</figcaption>
     </figure>
-    <figure>
+    <figure class="video-figure">
       <a href="https://img.nsmc.org.cn/CLOUDIMAGE/FY2H/VIDEO/FY2H.br.72h.mp4" target="_blank">
-        <video src="https://img.nsmc.org.cn/CLOUDIMAGE/FY2H/VIDEO/FY2H.br.72h.mp4" preload="none" poster="/assets/imatges/videoframe_1280.png" controls>
-          Your browser does not support the video tag.
-        </video>
+        <img src="/assets/imatges/videoframe_1280.png" alt="FY-2H Belt and Road regional video 72h">
       </a>
       <figcaption>FY-2H Belt and Road regional video 72h</figcaption>
     </figure>
   </div>
 </section>
 
+<!--CSS FOR VIDEOS-->
+
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ensure 250px is the minimum size for each item */
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .video-figure {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .video-thumbnail {
+    max-width: 100%;
+    height: auto; /* Keep aspect ratio */
+    object-fit: cover; /* Ensure image fills the space without distortion */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .video-thumbnail:hover {
+    transform: scale(1.05); /* Slight zoom on hover for effect */
+  }
+
+  figcaption {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 0.5rem;
+  }
+</style>
 
 <!-- GOES STATIC IMAGE ROOT GEOCOLOUR DIRECTORY:
     https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/
