@@ -20,76 +20,86 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+
 </script>
 
 <!--IMAGE VIEWER AND DOWNLOADER SCRIPT-->
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const modal = document.getElementById("modal");
-      const modalImg = document.getElementById("modal-img");
-      const modalVideo = document.getElementById("modal-video");
-      const modalClose = document.getElementById("modal-close");
-      const openInBrowser = document.getElementById("open-in-browser");
-      const download = document.getElementById("download");
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modal-img");
+    const modalVideo = document.getElementById("modal-video");
+    const modalClose = document.getElementById("modal-close");
+    const openInBrowser = document.getElementById("open-in-browser");
+    const download = document.getElementById("download");
 
-      let currentSrc = "";
+    let currentSrc = "";
 
-      document.querySelectorAll(".gallery img").forEach((img) => {
-        img.addEventListener("click", () => {
-          const type = img.getAttribute("data-type");
-          currentSrc = img.getAttribute("data-src");
+    document.querySelectorAll(".gallery img").forEach((img) => {
+      img.addEventListener("click", () => {
+        const type = img.getAttribute("data-type");
+        currentSrc = img.getAttribute("data-src");
 
-          if (type === "image") {
+        // Hide modal contents initially
+        modalImg.style.display = "none";
+        modalVideo.style.display = "none";
+
+        if (type === "image") {
+          // Preload the image before showing the modal
+          const tempImg = new Image();
+          tempImg.onload = () => {
             modalImg.src = currentSrc;
             modalImg.style.display = "block";
-            modalVideo.style.display = "none";
-          } else if (type === "video") {
-            modalVideo.src = currentSrc;
-            modalVideo.style.display = "block";
-            modalImg.style.display = "none";
-          }
-
+            modal.style.display = "flex"; // Show modal after image is ready
+          };
+          tempImg.src = currentSrc;
+        } else if (type === "video") {
+          modalVideo.src = currentSrc;
+          modalVideo.style.display = "block";
+          modalImg.style.display = "none";
           modal.style.display = "flex";
-        });
-      });
-
-      modalClose.addEventListener("click", () => {
-        modal.style.display = "none";
-        modalImg.src = "";
-        modalVideo.src = "";
-      });
-
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-          modal.style.display = "none";
-          modalImg.src = "";
-          modalVideo.src = "";
-        }
-      });
-
-      openInBrowser.addEventListener("click", () => {
-        if (currentSrc) {
-          window.open(currentSrc, "_blank");
-        }
-      });
-
-      download.addEventListener("click", () => {
-        if (currentSrc) {
-          const a = document.createElement("a");
-          a.href = currentSrc;
-          a.download = currentSrc.split("/").pop();
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
         }
       });
     });
-  </script>
 
-  <!--CSS FOR SCRIPT-->
+    modalClose.addEventListener("click", () => {
+      modal.style.display = "none";
+      modalImg.src = "";
+      modalVideo.src = "";
+    });
 
-    <style>
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+        modalImg.src = "";
+        modalVideo.src = "";
+      }
+    });
+
+    openInBrowser.addEventListener("click", () => {
+      if (currentSrc) {
+        window.open(currentSrc, "_blank");
+      }
+    });
+
+    download.addEventListener("click", () => {
+      if (currentSrc) {
+        const a = document.createElement("a");
+        a.href = currentSrc;
+        a.download = currentSrc.split("/").pop();
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+    });
+  });
+</script>
+
+
+<!--CSS FOR IMAGE SCRIPT-->
+  <style>
     * {
       margin: 0;
       padding: 0;
@@ -485,64 +495,101 @@ document.addEventListener("DOMContentLoaded", function () {
   <a href="sobre_mi.html">Sobre Mi</a>
   <a href="contacte.html">Contacte</a>
   <a href="https://github.com/planetryan/ryanspace.github.io" target="_blank">Codi Font</a>
-  <a href="https://www.nsmc.org.cn/geo/index.en.html">FengYun Satellite image composite video</a> 
+  <!--<a href="https://www.nsmc.org.cn/geo/index.en.html">FengYun Satellite image composite video</a> -->
 </nav>
 
+<!-- THUMBNAIL SCRIPT -->
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
+  const modalClose = document.getElementById("modal-close");
+
+  // Add click event to open images in a modal
+  document.querySelectorAll(".gallery img").forEach((img) => {
+    img.addEventListener("click", () => {
+      const largeImage = img.getAttribute("data-src"); // Fetch the large image
+      modalImg.src = largeImage; // Set it as the source for modal
+      modal.style.display = "flex"; // Show the modal
+    });
+  });
+
+  // Close the modal
+  modalClose.addEventListener("click", () => {
+    modal.style.display = "none";
+    modalImg.src = ""; // Reset the image source
+  });
+
+  // Close the modal if the background is clicked
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      modalImg.src = "";
+    }
+  });
+});
+</script>
+
+
+<!-- IMATGES -->
+
 <div class="container">
-    <!-- IMATGES -->
-    <section>
-      <h2>Imatges</h2>
-      <div class="gallery">
-        <figure>
-          <a href="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/10848x10848.jpg" target="_blank">
-            <img src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/10848x10848.jpg" alt="GOES East en directe">
-          </a>
-          <figcaption>GOES East Full Disk</figcaption>
-        </figure>
-        <figure>
-          <a href="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/10848x10848.jpg" target="_blank">
-            <img src="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/10848x10848.jpg" alt="GOES West en directe">
-          </a>
-          <figcaption>GOES West Full Disk</figcaption>
-        </figure>
-        <figure>
-          <a href="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSGIODC_RGBNatColourEnhncd_FullResolution.jpg" target="_blank">
-            <img src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSGIODC_RGBNatColourEnhncd_FullResolution.jpg" alt="EUMETSAT_MSGIODC_RGBNatColourEnhncd (45)">
-          </a>
-          <figcaption>EUMETSAT_MSGIODC_RGBNatColourEnhncd [per amb EUMETSTAT 45]</figcaption>
-        </figure>
-        <figure>
-          <a href="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_FullResolution.jpg" target="_blank">
-            <img src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_FullResolution.jpg" alt="EUMETSAT_MSGIODC_RGBNatColourEnhncd (0)">
-          </a>
-          <figcaption>EUMETSAT_MSGIODC_RGBNatColourEnhncd [per amb EUMETSTAT 0]</figcaption>
-        </figure>
-        <figure>
-            <a href="https://img.nsmc.org.cn/CLOUDIMAGE/FY3D/MIPS/FY3D_MERSI_GLOBAL.jpg" target="_blank">
-              <img src="https://img.nsmc.org.cn/CLOUDIMAGE/FY3D/MIPS/FY3D_MERSI_GLOBAL.jpg" alt="FY3D_MERSI_GLOBAL">
-            </a>
-            <figcaption>Global Image Mercador Projection: FengYun Latest Imagery</figcaption>
-          </figure>
-         <figure>
-            <a href="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/PIC/GBAL/GEOS_IMAGR_GBAL_L2_MOS_IRX_GLL_YYYYMMDD_HHmm_10KM_MS.jpg" target="_blank">
-              <img src="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/PIC/GBAL/GEOS_IMAGR_GBAL_L2_MOS_IRX_GLL_YYYYMMDD_HHmm_10KM_MS.jpg" alt="FY3D_MERSI_GLOBAL">
-            </a>
-            <figcaption>Global Image Mercador Projection</figcaption>
-         </figure>
-         <figure>
-            <a href="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/GCLR/FY4B_DISK_GCLR.JPG" target="_blank">
-              <img src="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/GCLR/FY4B_DISK_GCLR.JPG" alt="FY-4B full disk True Color image">
-            </a>
-            <figcaption>FY-4B full disk True Color image</figcaption>
-         </figure>
-         <figure>
-            <a href="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/SWCI/FY4B_DISK_SWCI.JPG" target="_blank">
-              <img src="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/SWCI/FY4B_DISK_SWCI.JPG" alt="FY-4B full-disk Sandwich image.">
-            </a>
-            <figcaption>FY-4B full-disk Sandwich image.</figcaption>
-         </figure>
-      </div>
-    </section>
+  <section>
+    <h2>Imatges</h2>
+    <div class="gallery">
+      <figure>
+        <a href="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/10848x10848.jpg" target="_blank">
+          <img src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/10848x10848.jpg" alt="GOES East Full Disk" data-src="https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/10848x10848.jpg">
+        </a>
+        <figcaption>GOES East Full Disk</figcaption>
+      </figure>
+      <figure>
+        <a href="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/10848x10848.jpg" target="_blank">
+          <img src="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/10848x10848.jpg" alt="GOES West Full Disk" data-src="https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/10848x10848.jpg">
+        </a>
+        <figcaption>GOES West Full Disk</figcaption>
+      </figure>
+      <figure>
+        <a href="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSGIODC_RGBNatColourEnhncd_FullResolution.jpg" target="_blank">
+          <img src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSGIODC_RGBNatColourEnhncd_FullResolution.jpg" alt="EUMETSAT_MSGIODC_RGBNatColourEnhncd (45)" data-src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSGIODC_RGBNatColourEnhncd_FullResolution.jpg">
+        </a>
+        <figcaption>EUMETSAT_MSGIODC_RGBNatColourEnhncd [per amb EUMETSTAT 45]</figcaption>
+      </figure>
+      <figure>
+        <a href="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_FullResolution.jpg" target="_blank">
+          <img src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_FullResolution.jpg" alt="EUMETSAT_MSGIODC_RGBNatColourEnhncd (0)" data-src="https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_FullResolution.jpg">
+        </a>
+        <figcaption>EUMETSAT_MSGIODC_RGBNatColourEnhncd [per amb EUMETSTAT 0]</figcaption>
+      </figure>
+      <figure>
+        <a href="https://img.nsmc.org.cn/CLOUDIMAGE/FY3D/MIPS/FY3D_MERSI_GLOBAL.jpg" target="_blank">
+          <img src="https://img.nsmc.org.cn/CLOUDIMAGE/FY3D/MIPS/FY3D_MERSI_GLOBAL.jpg" alt="FY3D_MERSI_GLOBAL" data-src="https://img.nsmc.org.cn/CLOUDIMAGE/FY3D/MIPS/FY3D_MERSI_GLOBAL.jpg">
+        </a>
+        <figcaption>Global Image Mercador Projection: FengYun Latest Imagery</figcaption>
+      </figure>
+      <figure>
+        <a href="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/PIC/GBAL/GEOS_IMAGR_GBAL_L2_MOS_IRX_GLL_YYYYMMDD_HHmm_10KM_MS.jpg" target="_blank">
+          <img src="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/PIC/GBAL/GEOS_IMAGR_GBAL_L2_MOS_IRX_GLL_YYYYMMDD_HHmm_10KM_MS.jpg" alt="FY3D_MERSI_GLOBAL" data-src="https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/PIC/GBAL/GEOS_IMAGR_GBAL_L2_MOS_IRX_GLL_YYYYMMDD_HHmm_10KM_MS.jpg">
+        </a>
+        <figcaption>Global Image Mercador Projection</figcaption>
+      </figure>
+      <figure>
+        <a href="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/GCLR/FY4B_DISK_GCLR.JPG" target="_blank">
+          <img src="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/GCLR/FY4B_DISK_GCLR.JPG" alt="FY-4B full disk True Color image" data-src="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/GCLR/FY4B_DISK_GCLR.JPG">
+        </a>
+        <figcaption>FY-4B full disk True Color image</figcaption>
+      </figure>
+      <figure>
+        <a href="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/SWCI/FY4B_DISK_SWCI.JPG" target="_blank">
+          <img src="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/SWCI/FY4B_DISK_SWCI.JPG" alt="FY-4B full-disk Sandwich image." data-src="https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/SWCI/FY4B_DISK_SWCI.JPG">
+        </a>
+        <figcaption>FY-4B full-disk Sandwich image.</figcaption>
+      </figure>
+    </div>
+  </section>
+</div>
+
   
     <!-- VIDEOS -->
     <section style="margin-top: 3rem;">
