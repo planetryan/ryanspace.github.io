@@ -24,6 +24,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </script>
 
+<!--MODAL SCRIPT-->
+
+<script>
+  // Get the modal
+  var modal = document.querySelector('.modal');
+  var modalImg = modal.querySelector('img');
+  var modalVideo = modal.querySelector('video');
+
+  // Get all images and videos in the gallery
+  var viewFullLinks = document.querySelectorAll('.view-full');
+
+  // When an image or video is clicked
+  viewFullLinks.forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault(); // Prevent the default anchor behavior
+      var src = this.href;
+
+      // If the clicked element is an image
+      if (src.endsWith('.jpg') || src.endsWith('.png') || src.endsWith('.jpeg')) {
+        modalImg.src = src;
+        modalVideo.style.display = "none"; 
+        modalImg.style.display = "block"; 
+      } 
+      // If the clicked element is a video
+      else if (src.endsWith('.mp4')) {
+        modalVideo.src = src;
+        modalImg.style.display = "none";
+        modalVideo.style.display = "block";
+      }
+
+      modal.style.display = "flex"; 
+    });
+  });
+
+  // When the close button is clicked
+  document.querySelector('.modal-close').onclick = function() {
+    modal.style.display = "none";
+    modalVideo.pause(); 
+  };
+
+  // When the user clicks anywhere outside the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+      modalVideo.pause();
+    }
+  }
+</script>
+
+
 <!--IMAGE VIEWER AND DOWNLOADER SCRIPT-->
 
 <script>
