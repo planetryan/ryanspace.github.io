@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="ca">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RyanSpace - Sobre Mi</title>
-  <link rel="icon" href="/images/channels4_profile.ico" sizes="32x32" />
-  <style>
-  /* General styles */
-
-     /* Video */
+    /* Video */
 
      .media-container {
     display: grid;
@@ -196,39 +186,3 @@ img {
       font-size: 0.85rem;
     }
   }
-</style>
-</head>
-<body>
-
-<header>
-  <h1>RyanSpace</h1>
-  <p>Sobre Mi</p>
-</header>
-
-<nav>
-  <a href="index.html">Inici</a>
-  <a href="contacte.html">Contacte</a>
-</nav>
-
-<main class="container">
-
-  <section class="post">
-    <h2>Sobre mi:</h2>
-    <h3>No tinc gaire a dir aquí, no sóc una persona especial.</h3>
-    <h4>
-      M'interessa l'assemblador RISC-V, estic aprenent C i C++, utilitzo HTML, CSS i una mica de Java per aquest lloc web, i aniré a la universitat a la tardor del 2025.
-    </h4>
-  </section>
-
-  <section class="post">
-    <h2>Que Déu em beneeixi, perquè sóc el seu fill sagrat.</h2>
-  </section>
-
-</main>
-
-<footer>
-  2025 RyanSpace - Tots els drets reservats.
-</footer>
-
-</body>
-</html>

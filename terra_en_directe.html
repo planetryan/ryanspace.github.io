@@ -4,199 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Terra en directe - RyanSpace</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/styles-terra.css">
+  <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
   <link rel="icon" href="/images/channels4_profile.ico" sizes="32x32">
-  <style>
-  /* General styles */
-
-     /* Video */
-
-     .media-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    justify-items: center;
-}
-
-video {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-     .gallery img,
-.gallery video {
-  width: 100%;
-  max-width: 100%;
-  max-height: 300px;
-  object-fit: contain;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  html, body {
-    height: 100%;
-    min-height: 100vh;
-    font-family: sans-serif;
-    line-height: 1.6;
-    background: #f9f9f9;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  header {
-    background: #444;
-    color: white;
-    padding: 2rem 5%;
-  }
-
-  nav {
-    background: #eee;
-    padding: 1rem 5%;
-  }
-
-  nav a {
-    margin: 0 1rem;
-    text-decoration: none;
-    color: #444;
-    display: inline-block;
-  }
-
-  .container {
-    padding: 2rem 5%;
-    max-width: 1200px;
-    width: 100%;
-    margin: auto;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  footer {
-    background: #444;
-    color: white;
-    padding: 1rem;
-  }
-
-  /* Gallery styles */
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .gallery figure {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .gallery img,
-  .gallery video {
-    width: 100%;
-    max-height: 300px;
-    object-fit: contain;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .gallery img:hover,
-  .gallery video:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  }
-
-  .gallery figcaption {
-    margin-top: 0.5rem;
-    font-size: 1rem;
-    color: #666;
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    nav {
-      text-align: center;
-    }
-
-    nav a {
-      display: block;
-      margin: 0.5rem 0;
-    }
-
-    .container {
-      padding: 1rem 2%;
-    }
-
-    header {
-      padding: 1.5rem 3%;
-    }
-
-    footer {
-      font-size: 0.9rem;
-      padding: 1rem;
-    }
-
-    .gallery img,
-    .gallery video {
-      max-height: 250px;
-    }
-
-    .gallery figcaption {
-      font-size: 0.9rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    header {
-      padding: 1.2rem 2%;
-    }
-
-    nav {
-      padding: 1rem 2%;
-    }
-
-    .container {
-      padding: 0.5rem 2%;
-    }
-
-    footer {
-      font-size: 0.8rem;
-    }
-
-    .gallery {
-      grid-template-columns: 1fr;
-    }
-
-    .gallery img,
-    .gallery video {
-      max-height: 200px;
-    }
-
-    .gallery figcaption {
-      font-size: 0.85rem;
-    }
-  }
-</style>
 </head>
 <body>
   <header>
@@ -250,7 +61,7 @@ img {
           <a href="https://agora.ex.nii.ac.jp/digital-typhoon/himawari-3g/latest/Hsfd/full/latest.jpg" target="_blank">
             <img src="assets/imatges/latest (1).jpg" alt="Latest image: Sunflower RGB: 11000 x 11000L">
           </a>
-          <figcaption>Himawari-9 Latest image: Sunflower RGB: 11000 x 11000L</figcaption>
+          <figcaption>Himawari-9 Latest image: Sunflower RGB: 11000 x 11000</figcaption>
         </figure>
         <figure>
           <a href="https://agora.ex.nii.ac.jp/digital-typhoon/latest/globe/8192x8192/vis.jpg" target="_blank">
@@ -348,39 +159,6 @@ img {
     2025 RyanSpace - Tots els drets reservats
   </footer>
 
-<script>
-document.addEventListener("DOMContentLoaded", async () => {
-  try {
-    const response = await fetch("https://epic.gsfc.nasa.gov/api/natural");
-    const data = await response.json();
-    if (!data.length) return;
-
-    const imageInfo = data[0];
-    const [year, month, day] = imageInfo.date.split(" ")[0].split("-");
-    const imageUrl = `https://epic.gsfc.nasa.gov/archive/natural/${year}/${month}/${day}/jpg/${imageInfo.image}.jpg`;
-
-    const figure = document.createElement("figure");
-    const anchor = document.createElement("a");
-    anchor.href = imageUrl;
-    anchor.target = "_blank";
-
-    const img = document.createElement("img");
-    img.src = imageUrl;
-    img.alt = `NASA EPIC - ${imageInfo.caption}`;
-    img.className = "gallery-img";
-
-    const caption = document.createElement("figcaption");
-    caption.textContent = `NASA EPIC – ${imageInfo.caption}`;
-
-    anchor.appendChild(img);
-    figure.appendChild(anchor);
-    figure.appendChild(caption);
-
-    document.querySelector(".gallery")?.appendChild(figure);
-  } catch (err) {
-    console.error("Failed to load NASA EPIC image", err);
-  }
-});
-</script>
+<script src="/assets/js/epic.js"></script>
 </body>
 </html>
