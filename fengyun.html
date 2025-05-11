@@ -1,0 +1,1153 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Imagery and Product</title>
+<link rel="stylesheet" href="../../css/assets/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/assets/font-awesome.min.css">
+<link rel="stylesheet" href="../../css/assets/viewer.css">
+<link rel="stylesheet" href="../../css/module.en.css">
+<link rel="stylesheet" href="../../css/share.en.header.css">
+<link rel="stylesheet" href="../../css/share.en.sidebar.css">
+<link rel="stylesheet" href="../../css/share.en.footer.css">
+<link rel="stylesheet" href="../../css/page.image.index.css">
+<link rel="stylesheet" href="../../css/module.navigator.left.css"/>
+<link rel="shortcut icon" href="../../pic/32x32.ico">
+</head>
+<body>
+<!-- 头部 -->
+<div class="g-header"></div>
+<div class="g-interval"></div>
+
+<!-- 内容部分 -->
+<div class="container g-content u-width">
+    <div class="row clearfix">
+        <div class="col-sm-12">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Imagery and Product</li>
+            </ul>
+        </div>
+        <div id="navpanel-image" class="col-md-3 column"></div>
+        <div id="rightImage" class="col-md-9">
+            <!-- 获取xml 文件播放动画 -->
+            <div id="allxmlAni">
+                <form class="form-horizontal" role="form">
+                    <div id="timeselect" class="form-group">
+                    </div>
+                    
+                    <div id="timeselect1" class="form-group" style="display:none;" >
+                         <label for="timespan1" class="col-sm-4 control-label" >Dates</label>
+                        <div class="col-sm-8">
+                            <select id="timespan1" class="form-control">
+                                <option value="31">Last month</option>
+                                <option value="15">Last 15 days</option>
+                                <option value="7">Last 7 days</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row" style="margin-top: -30px;">
+                <div class="column col-md-6">
+                    <h3 id="j-title-image">FY-4B China Regional Image</h3>
+                </div>
+                <div class="column col-md-6">
+                    <p id="j-time-image">&nbsp;</p>
+                </div>
+            </div>
+            <div>
+                <div id="j-waiting" style="display:none;"><span class="fa fa-pulse fa-spinner fa-5x"></span><br>Loading...</div>
+                <div id="galley">
+                    <ul id="j-pictures"></ul>
+                </div>
+            </div> 
+            <div style="margin-top:20px;"></div>
+
+            <div class="imagelist">
+                <!-- 静止卫星全球云图 -->
+                <ul class="list-inline GEOS_MOS_IRX" style="display:none;">
+                    <li id="j-btn-GEOS_MOS_IRX" class="s-button s-button-active" data-type="GEOS_MOS_IRX">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/GEOS/THUMBNAIL/GEOS_MOS_IRX.jpg">
+                            <label>Colored (1 hour)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-GEOS_COL_IRX" class="s-button" data-type="GEOS_COL_IRX">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/GEOS/THUMBNAIL/GEOS_COL_IRX.jpg">
+                            <label>Enhanced (1 hour)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-GEOS_GRA_IRX" class="s-button" data-type="GEOS_GRA_IRX">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/GEOS/THUMBNAIL/GEOS_GRA_IRX.jpg">
+                            <label>Gray (1 hour)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-GEOS_MOS_IRX_15min" class="s-button" data-type="GEOS_MOS_IRX_15min">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/GEOS/THUMBNAIL/GEOS_MOS_IRX.jpg">
+                            <label>Colored (15 minutes)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-GEOS_COL_IRX_15min" class="s-button" data-type="GEOS_COL_IRX_15min">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/GEOS/THUMBNAIL/GEOS_COL_IRX.jpg">
+                            <label>Enhanced (15 minutes)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-GEOS_GRA_IRX_15min" class="s-button" data-type="GEOS_GRA_IRX_15min">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/GEOS/THUMBNAIL/GEOS_GRA_IRX.jpg">
+                            <label>Gray (15 minutes)</label>
+                        </a>
+                    </li>
+                </ul>
+                <!-- FY3F产品SST -->
+                <ul class="list-inline FY3F_MERSI_SST_DAY" style="display:none;">
+                    <li id="j-btn-FY3F_MERSI_SST_DAY" class="s-button" data-type="FY3F_MERSI_SST_DAY">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY3F/THUMBNAIL/FY3F_MERSI_SST_DAY.jpg">
+                            <label>Day-time</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY3F_MERSI_SST_NIG" class="s-button" data-type="FY3F_MERSI_SST_NIG">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY3F/THUMBNAIL/FY3F_MERSI_SST_NIG.jpg">
+                            <label>Night-time</label>
+                        </a>
+                    </li>
+                </ul>
+                <!-- FY3F产品TPW -->
+                <ul class="list-inline FY3F_MERSI_TPW_ASC" style="display:none;">
+                    <li id="j-btn-FY3F_MERSI_TPW_ASC" class="s-button" data-type="FY3F_MERSI_TPW_ASC">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY3F/THUMBNAIL/FY3F_MERSI_TPW_ASC.jpg">
+                            <label>Ascending</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY3F_MERSI_TPW_DESC" class="s-button" data-type="FY3F_MERSI_TPW_DESC">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY3F/THUMBNAIL/FY3F_MERSI_TPW_DESC.jpg">
+                            <label>Descending</label>
+                        </a>
+                    </li>
+                </ul>
+                <!-- FY3D产品SST -->
+                <ul class="list-inline FY3D_MERSI_SST_DAY" style="display:none;">
+                    <li id="j-btn-FY3D_MERSI_SST_DAY" class="s-button" data-type="FY3D_MERSI_SST_DAY">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY3D/THUMBNAIL/FY3D_MERSI_SST_DAY.jpg">
+                            <label>Day-time</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY3D_MERSI_SST_NIG" class="s-button" data-type="FY3D_MERSI_SST_NIG">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY3D/THUMBNAIL/FY3D_MERSI_SST_NIG.jpg">
+                            <label>Night-time</label>
+                        </a>
+                    </li>
+                </ul>
+                <!-- FY3D产品TPW -->
+                <ul class="list-inline FY3D_MERSI_TPW_DAY" style="display:none;">
+                    <li id="j-btn-FY3D_MERSI_TPW_DAY" class="s-button" data-type="FY3D_MERSI_TPW_DAY">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY3D/THUMBNAIL/FY3D_MERSI_TPW_DAY.jpg">
+                            <label>Day-time</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY3D_MERSI_TPW_NIG" class="s-button" data-type="FY3D_MERSI_TPW_NIG">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY3D/THUMBNAIL/FY3D_MERSI_TPW_NIG.jpg">
+                            <label>Night-time</label>
+                        </a>
+                    </li>
+                </ul>
+                <!-- FY3D产品CPT -->
+                <ul class="list-inline FY3D_MERSI_CPT_CTY" style="display:none;">
+                    <li id="j-btn-FY3D_MERSI_CPT_CTY" class="s-button" data-type="FY3D_MERSI_CPT_CTY">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY3D/THUMBNAIL/FY3D_MERSI_CPT_CTY.jpg">
+                            <label>Cloud Type</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY3D_MERSI_CPT_CPH" class="s-button" data-type="FY3D_MERSI_CPT_CPH">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY3D/THUMBNAIL/FY3D_MERSI_CPT_CPH.jpg">
+                            <label>Cloud Phase</label>
+                        </a>
+                    </li>
+                </ul>
+                <!-- FY2G双星动画 -->
+                <ul class="list-inline FY2_WXCL" style="display:none;">
+                    <li id="j-btn-FY2_WXCL" class="s-button" data-type="FY2_WXCL">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2/THUMBNAIL/FY2_WXCL.jpg">
+                            <label>Colored</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2_WXBL" class="s-button" data-type="FY2_WXBL">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2/THUMBNAIL/FY2_WXBL.jpg">
+                            <label>Gray</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2_WXSP" class="s-button" data-type="FY2_WXSP">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2/THUMBNAIL/FY2_WXSP.jpg">
+                            <label>Sea regional</label>
+                        </a>
+                    </li>
+                </ul>
+                <!-- FY2G中国区云图 -->
+                <ul class="list-inline FY2G_LAN_CLC_GRA" style="display:none;">
+                    <li id="j-btn-FY2G_LAN_CLC_GRA" class="s-button" data-type="FY2G_LAN_CLC_GRA">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_LAN_CLC_GRA.jpg">
+                            <label>IR1 (10.3~11.3μm), colored</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_LAN_IR1_COL" class="s-button" data-type="FY2G_LAN_IR1_COL">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_LAN_IR1_COL.jpg">
+                            <label>IR1 (10.3~11.3μm), enhanced</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_LAN_IR1_GRA" class="s-button" data-type="FY2G_LAN_IR1_GRA">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_LAN_IR1_GRA.jpg">
+                            <label>IR1 (10.3~11.3μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_LAN_IR2_COL" class="s-button" data-type="FY2G_LAN_IR2_COL">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_LAN_IR2_COL.jpg">
+                            <label>IR2 (11.5~12.5μm), enhanced</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_LAN_IR2_GRA" class="s-button" data-type="FY2G_LAN_IR2_GRA">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_LAN_IR2_GRA.jpg">
+                            <label>IR2 (11.5~12.5μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_LAN_IR3_COL" class="s-button" data-type="FY2G_LAN_IR3_COL">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_LAN_IR3_COL.jpg">
+                            <label>IR3 (6.3~7.6μm), enhanced</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_LAN_IR3_GRA" class="s-button" data-type="FY2G_LAN_IR3_GRA">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_LAN_IR3_GRA.jpg">
+                            <label>IR3 (6.3~7.6μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_LAN_IR4_GRA" class="s-button" data-type="FY2G_LAN_IR4_GRA">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_LAN_IR4_GRA.jpg">
+                            <label>IR4 (3.5~4.0μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_LAN_VIS_GRA" class="s-button" data-type="FY2G_LAN_VIS_GRA">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_LAN_VIS_GRA.jpg">
+                            <label>VIS (0.55~0.9μm)</label>
+                        </a>
+                    </li>
+                </ul>
+                <!-- FY2G海区云图 -->
+                <ul class="list-inline FY2G_SEA_CLC_GRA" style="display:none;">
+                    <li id="j-btn-FY2G_SEA_CLC_GRA" class="s-button" data-type="FY2G_SEA_CLC_GRA">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_SEA_CLC_GRA.jpg">
+                            <label>IR1 (10.3~11.3μm), colored</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_SEA_IR1_COL" class="s-button" data-type="FY2G_SEA_IR1_COL">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_SEA_IR1_COL.jpg">
+                            <label>IR1 (10.3~11.3μm), enhanced</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_SEA_IR1_GRA" class="s-button" data-type="FY2G_SEA_IR1_GRA">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_SEA_IR1_GRA.jpg">
+                            <label>IR1 (10.3~11.3μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_SEA_IR2_COL" class="s-button" data-type="FY2G_SEA_IR2_COL">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_SEA_IR2_COL.jpg">
+                            <label>IR2 (11.5~12.5μm), enhanced</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_SEA_IR2_GRA" class="s-button" data-type="FY2G_SEA_IR2_GRA">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_SEA_IR2_GRA.jpg">
+                            <label>IR2 (11.5~12.5μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_SEA_IR3_COL" class="s-button" data-type="FY2G_SEA_IR3_COL">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_SEA_IR3_COL.jpg">
+                            <label>IR3 (6.3~7.6μm), enhanced</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_SEA_IR3_GRA" class="s-button" data-type="FY2G_SEA_IR3_GRA">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_SEA_IR3_GRA.jpg">
+                            <label>IR3 (6.3~7.6μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_SEA_IR4_GRA" class="s-button" data-type="FY2G_SEA_IR4_GRA">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_SEA_IR4_GRA.jpg">
+                            <label>IR4 (3.5~4.0μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_SEA_VIS_GRA" class="s-button" data-type="FY2G_SEA_VIS_GRA">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_SEA_VIS_GRA.jpg">
+                            <label>VIS (0.55~0.9μm)</label>
+                        </a>
+                    </li>
+                </ul>
+                <!-- FY2G圆盘图 -->
+                <ul class="list-inline FY2G_GLB_CLC_GRA" style="display:none;">
+                    <li id="j-btn-FY2G_GLB_CLC_GRA" class="s-button" data-type="FY2G_GLB_CLC_GRA">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_GLB_CLC_GRA.jpg">
+                            <label>IR1 (10.3~11.3μm), colored</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_GLB_IR1_COL" class="s-button" data-type="FY2G_GLB_IR1_COL">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_GLB_IR1_COL.jpg">
+                            <label>IR1 (10.3~11.3μm), enhanced</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_GLB_IR1_GRA" class="s-button" data-type="FY2G_GLB_IR1_GRA">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_GLB_IR1_GRA.jpg">
+                            <label>IR1 (10.3~11.3μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_GLB_IR2_COL" class="s-button" data-type="FY2G_GLB_IR2_COL">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_GLB_IR2_COL.jpg">
+                            <label>IR2 (11.5~12.5μm), enhanced</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_GLB_IR2_GRA" class="s-button" data-type="FY2G_GLB_IR2_GRA">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_GLB_IR2_GRA.jpg">
+                            <label>IR2 (11.5~12.5μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_GLB_IR3_COL" class="s-button" data-type="FY2G_GLB_IR3_COL">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_GLB_IR3_COL.jpg">
+                            <label>IR3 (6.3~7.6μm), enhanced</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_GLB_IR3_GRA" class="s-button" data-type="FY2G_GLB_IR3_GRA">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_GLB_IR3_GRA.jpg">
+                            <label>IR3 (6.3~7.6μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_GLB_IR4_GRA" class="s-button" data-type="FY2G_GLB_IR4_GRA">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_GLB_IR4_GRA.jpg">
+                            <label>IR4 (3.5~4.0μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2G_GLB_VIS_GRA" class="s-button" data-type="FY2G_GLB_VIS_GRA">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2G/THUMBNAIL/FY2_GLB_VIS_GRA.jpg">
+                            <label>VIS (0.55~0.9μm)</label>
+                        </a>
+                    </li>
+                </ul>
+                <!-- FY-2H圆盘图-->
+                <ul class="list-inline FY2H_ETV_NOM" style="display:none;">
+                    <li id="j-btn-FY2H_ETV_NOM" class="s-button" data-type="FY2H_ETV_NOM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_NOM_ETV.jpg">
+                            <label>Colored</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_GLB_IR1" class="s-button" data-type="FY2H_GLB_IR1">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_GLB_IR1_GRA.jpg">
+                            <label>IR1 (10.3~11.3μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_GLB_IR2" class="s-button" data-type="FY2H_GLB_IR2">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_GLB_IR2_GRA.jpg">
+                            <label>IR2 (11.5~12.5μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_GLB_IR3" class="s-button" data-type="FY2H_GLB_IR3">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_GLB_IR3_GRA.jpg">
+                            <label>IR3 (6.3~7.6μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_GLB_IR4" class="s-button" data-type="FY2H_GLB_IR4">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_GLB_IR4_GRA.jpg">
+                            <label>IR4 (3.5~4.0μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_GLB_VIS_1KM" class="s-button" data-type="FY2H_GLB_VIS_1KM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_GLB_VIS_GRA_1KM.jpg">
+                            <label>VIS (0.55~0.9μm), 1.25km</label>
+                        </a>
+                    </li>
+                    <!-- <li id="j-btn-FY2H_GLB_VIS_5KM" class="s-button" data-type="FY2H_GLB_VIS_5KM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_GLB_VIS_GRA_1KM.jpg">
+                            <label>VIS (0.55~0.9μm), 5km</label>
+                        </a>
+                    </li> -->
+                </ul>
+                <!-- FY-2H区域云图-->
+                <ul class="list-inline FY2H_ETV_SEC" style="display:none;">
+                    <li id="j-btn-FY2H_ETV_SEC" class="s-button" data-type="FY2H_ETV_SEC">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_ETV.jpg">
+                            <label>Colored</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_SEC_IR1" class="s-button" data-type="FY2H_SEC_IR1">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR1.jpg">
+                            <label>IR1 (10.3~11.3μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_SEC_IR2" class="s-button" data-type="FY2H_SEC_IR2">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR2.jpg">
+                            <label>IR2 (11.5~12.5μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_SEC_IR3" class="s-button" data-type="FY2H_SEC_IR3">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR3.jpg">
+                            <label>IR3 (6.3~7.6μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_SEC_IR4" class="s-button" data-type="FY2H_SEC_IR4">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR4.jpg">
+                            <label>IR4 (3.5~4.0μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_SEC_VIS_1KM" class="s-button" data-type="FY2H_SEC_VIS_1KM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_VIS.jpg">
+                            <label>VIS (0.55~0.9μm), 1.25km</label>
+                        </a>
+                    </li>
+                    <!-- <li id="j-btn-FY2H_SEC_VIS_5KM" class="s-button" data-type="FY2H_SEC_VIS_5KM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_VIS.jpg">
+                            <label>VIS (0.55~0.9μm), 5km</label>
+                        </a>
+                    </li> -->
+                </ul>
+                <!-- FY-2H区域1云图-->
+                <ul class="list-inline FY2H_P1_IR1" style="display:none;">
+                    <li id="j-btn-FY2H_P1_IR1" class="s-button" data-type="FY2H_P1_IR1">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR1_P1_5KM.jpg">
+                            <label>IR1 (10.3~11.3μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_P1_IR2" class="s-button" data-type="FY2H_P1_IR2">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR2_P1_5KM.jpg">
+                            <label>IR2 (11.5~12.5μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_P1_IR3" class="s-button" data-type="FY2H_P1_IR3">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR3_P1_5KM.jpg">
+                            <label>IR3 (6.3~7.6μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_P1_IR4" class="s-button" data-type="FY2H_P1_IR4">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR4_P1_5KM.jpg">
+                            <label>IR4 (3.5~4.0μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_P1_VIS_1KM" class="s-button" data-type="FY2H_P1_VIS_1KM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_VIS_P1_1KM.jpg">
+                            <label>VIS (0.55~0.9μm), 1.25km</label>
+                        </a>
+                    </li>
+                    <!-- <li id="j-btn-FY2H_P1_VIS_5KM" class="s-button" data-type="FY2H_P1_VIS_5KM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_VIS_P1_1KM.jpg">
+                            <label>VIS (0.55~0.9μm), 5km</label>
+                        </a>
+                    </li> -->
+                </ul>
+                <!-- FY-2H区域2云图-->
+                <ul class="list-inline FY2H_P2_IR1" style="display:none;">
+                    <li id="j-btn-FY2H_P2_IR1" class="s-button" data-type="FY2H_P2_IR1">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR1_P2_5KM.jpg">
+                            <label>IR1 (10.3~11.3μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_P2_IR2" class="s-button" data-type="FY2H_P2_IR2">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR2_P2_5KM.jpg">
+                            <label>IR2 (11.5~12.5μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_P2_IR3" class="s-button" data-type="FY2H_P2_IR3">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR3_P2_5KM.jpg">
+                            <label>IR3 (6.3~7.6μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_P2_IR4" class="s-button" data-type="FY2H_P2_IR4">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR4_P2_5KM.jpg">
+                            <label>IR4 (3.5~4.0μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_P2_VIS_1KM" class="s-button" data-type="FY2H_P2_VIS_1KM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_VIS_P2_1KM.jpg">
+                            <label>VIS (0.55~0.9μm), 1.25km</label>
+                        </a>
+                    </li>
+                    <!-- <li id="j-btn-FY2H_P2_VIS_5KM" class="s-button" data-type="FY2H_P2_VIS_5KM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_VIS_P2_1KM.jpg">
+                            <label>VIS (0.55~0.9μm), 5km</label>
+                        </a>
+                    </li> -->
+                </ul>
+                <!-- FY-2H区域3云图-->
+                <ul class="list-inline FY2H_P3_IR1" style="display:none;">
+                    <li id="j-btn-FY2H_P3_IR1" class="s-button" data-type="FY2H_P3_IR1">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR1_P3_5KM.jpg">
+                            <label>IR1 (10.3~11.3μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_P3_IR2" class="s-button" data-type="FY2H_P3_IR2">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR2_P3_5KM.jpg">
+                            <label>IR2 (11.5~12.5μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_P3_IR3" class="s-button" data-type="FY2H_P3_IR3">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR3_P3_5KM.jpg">
+                            <label>IR3 (6.3~7.6μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_P3_IR4" class="s-button" data-type="FY2H_P3_IR4">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR4_P3_5KM.jpg">
+                            <label>IR4 (3.5~4.0μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_P3_VIS_1KM" class="s-button" data-type="FY2H_P3_VIS_1KM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_VIS_P3_1KM.jpg">
+                            <label>VIS (0.55~0.9μm), 1.25km</label>
+                        </a>
+                    </li>
+                    <!-- <li id="j-btn-FY2H_P3_VIS_5KM" class="s-button" data-type="FY2H_P3_VIS_5KM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_VIS_P3_1KM.jpg">
+                            <label>VIS (0.55~0.9μm), 5km</label>
+                        </a>
+                    </li> -->
+                </ul>
+                <!-- FY-2H区域4云图-->
+                <ul class="list-inline FY2H_P4_IR1" style="display:none;">
+                    <li id="j-btn-FY2H_P4_IR1" class="s-button" data-type="FY2H_P4_IR1">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR1_P4_5KM.jpg">
+                            <label>IR1 (10.3~11.3μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_P4_IR2" class="s-button" data-type="FY2H_P4_IR2">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR2_P4_5KM.jpg">
+                            <label>IR2 (11.5~12.5μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_P4_IR3" class="s-button" data-type="FY2H_P4_IR3">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR3_P4_5KM.jpg">
+                            <label>IR3 (6.3~7.6μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_P4_IR4" class="s-button" data-type="FY2H_P4_IR4">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_IR4_P4_5KM.jpg">
+                            <label>IR4 (3.5~4.0μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_P4_VIS_1KM" class="s-button" data-type="FY2H_P4_VIS_1KM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_VIS_P4_1KM.jpg">
+                            <label>VIS (0.55~0.9μm), 1.25km</label>
+                        </a>
+                    </li>
+                    <!-- <li id="j-btn-FY2H_P4_VIS_5KM" class="s-button" data-type="FY2H_P4_VIS_5KM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_SEC_VIS_P4_1KM.jpg">
+                            <label>VIS (0.55~0.9μm), 5km</label>
+                        </a>
+                    </li> -->
+                </ul>
+                <!-- FY-2H产品PRE -->
+                <ul class="list-inline FY2H_PRE_1HOUR_OTG" style="display:none;">
+                    <li id="j-btn-FY2H_PRE_1HOUR_OTG" class="s-button" data-type="FY2H_PRE_1HOUR_OTG">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_PRE_001_OTG.jpg">
+                            <label>1 hour, regional</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_PRE_1HOUR_NOM" class="s-button" data-type="FY2H_PRE_1HOUR_NOM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_PRE_001_NOM.jpg">
+                            <label>1 hour, full disk</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_PRE_3HOUR_OTG" class="s-button" data-type="FY2H_PRE_3HOUR_OTG">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_PRE_003_OTG.jpg">
+                            <label>3 hours, regional</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_PRE_3HOUR_NOM" class="s-button" data-type="FY2H_PRE_3HOUR_NOM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_PRE_003_NOM.jpg">
+                            <label>3 hours, full disk</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_PRE_6HOUR_OTG" class="s-button" data-type="FY2H_PRE_6HOUR_OTG">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_PRE_006_OTG.jpg">
+                            <label>6 hours, regional</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_PRE_6HOUR_NOM" class="s-button" data-type="FY2H_PRE_6HOUR_NOM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_PRE_006_NOM.jpg">
+                            <label>6 hours, full disk</label>
+                        </a>
+                    </li>
+                </ul>
+                <!-- FY-2H产品AMV
+                <ul class="list-inline FY2H_AMV_IR1" style="display:none;">
+                    <li id="j-btn-FY2H_AMV_IR1" class="s-button" data-type="FY2H_AMV_IR1">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_AMV_IR1.jpg">
+                            <label>IR1 (10.3~11.3μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_AMV_IR3" class="s-button" data-type="FY2H_AMV_IR3">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_AMV_IR3.jpg">
+                            <label>IR3 (6.3~7.6μm)</label>
+                        </a>
+                    </li>
+                </ul> -->
+                <!-- FY-2H产品CLC -->
+                <ul class="list-inline FY2H_CLC_OTG" style="display:none;">
+                    <li id="j-btn-FY2H_CLC_OTG" class="s-button" data-type="FY2H_CLC_OTG">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_CLC_OTG.jpg">
+                            <label>GLL projection</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_CLC_NOM" class="s-button" data-type="FY2H_CLC_NOM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_CLC_NOM.jpg">
+                            <label>NOM projection</label>
+                        </a>
+                    </li>
+                </ul>
+                <!-- FY-2H产品TBB -->
+                <ul class="list-inline FY2H_TBB_OTG" style="display:none;">
+                    <li id="j-btn-FY2H_TBB_OTG" class="s-button" data-type="FY2H_TBB_OTG">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_TBB_OTG.jpg">
+                            <label>GLL projection</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_TBB_NOM" class="s-button" data-type="FY2H_TBB_NOM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_TBB_NOM.jpg">
+                            <label>NOM projection</label>
+                        </a>
+                    </li>
+                </ul>
+                <!-- FY-2H产品LST -->
+                <ul class="list-inline FY2H_LST_OTG" style="display:none;">
+                    <li id="j-btn-FY2H_LST_OTG" class="s-button" data-type="FY2H_LST_OTG">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_LST_OTG.jpg">
+                            <label>GLL projection</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY2H_LST_NOM" class="s-button" data-type="FY2H_LST_NOM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY2H/THUMBNAIL/FY2H_LST_NOM.jpg">
+                            <label>NOM projection</label>
+                        </a>
+                    </li>
+                </ul>
+                <!--FY4B全圆盘云图-->
+                <ul class="list-inline FY4B_AGRI_IMG_DISK_GCLR_NOM" style="display:none;">
+                    <li id="j-btn-FY4B_AGRI_IMG_DISK_GCLR_NOM" class="s-button" data-type="FY4B_AGRI_IMG_DISK_GCLR_NOM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_DISK_GCLR.jpg">
+                            <label>True color</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_DISK_NATR_NOM" class="s-button" data-type="FY4B_AGRI_IMG_DISK_NATR_NOM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_DISK_NATR.jpg">
+                            <label>Natural color</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_DISK_SWCI_NOM" class="s-button" data-type="FY4B_AGRI_IMG_DISK_SWCI_NOM">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_DISK_SWCI.jpg">
+                            <label>Sandwich image</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_DISK_THEMG_C08" class="s-button" data-type="FY4B_AGRI_IMG_DISK_THEMG_C08">
+                        <a>
+                        <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_DISK_THEMG_C08.jpg">
+                        <label>Band 8 (3.75μm, low), colored</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_DISK_THEMG_C09" class="s-button" data-type="FY4B_AGRI_IMG_DISK_THEMG_C09">
+                        <a>
+                        <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_DISK_THEMG_C09.jpg">
+                        <label>Band 9 (6.25μm), colored</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_DISK_THEMG_C10" class="s-button" data-type="FY4B_AGRI_IMG_DISK_THEMG_C10">
+                        <a>
+                        <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_DISK_THEMG_C10.jpg">
+                        <label>Band 10 (6.95μm), colored</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_DISK_THEMG_C11" class="s-button" data-type="FY4B_AGRI_IMG_DISK_THEMG_C11">
+                        <a>
+                        <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_DISK_THEMG_C11.jpg">
+                        <label>Band 11 (7.42μm), colored</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_DISK_THEMG_C13" class="s-button" data-type="FY4B_AGRI_IMG_DISK_THEMG_C13">
+                        <a>
+                        <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_DISK_THEMG_C13.jpg">
+                        <label>Band 13 (10.8μm), colored</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_DISK_THEMG_C14" class="s-button" data-type="FY4B_AGRI_IMG_DISK_THEMG_C14">
+                        <a>
+                        <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_THEMG_C14.jpg">
+                        <label>Band 14 (12.0μm), colored</label>
+                        </a>
+                    </li>
+                </ul>
+                <!--FY4B全圆盘图像产品-->
+                <ul class="list-inline FY4B_AGRI_IMG_DISK_MCPH_NOM" style="display:none;">
+                    <li id="j-btn-FY4B_AGRI_IMG_DISK_MCPH_NOM" class="s-button" data-type="FY4B_AGRI_IMG_DISK_MCPH_NOM">
+                        <a>
+                        <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_DISK_MCPH.jpg">
+                        <label>Full-day (MCPH)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_DISK_MCPD_NOM" class="s-button" data-type="FY4B_AGRI_IMG_DISK_MCPD_NOM">
+                        <a>
+                        <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_DISK_MCPD.jpg">
+                        <label>Day time (MCPD)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_DISK_MCPN_NOM" class="s-button" data-type="FY4B_AGRI_IMG_DISK_MCPN_NOM">
+                        <a>
+                        <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_DISK_MCPN.jpg">
+                        <label>Night time (MCPN)</label>
+                        </a>
+                    </li>
+                </ul>
+                <!-- FY4B中国区域云图 -->
+                <ul class="list-inline FY4B_AGRI_IMG_REGI_GCLR_GLL">
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GCLR_GLL" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GCLR_GLL">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGC_GCLR.jpg">
+                            <label>True color</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_PCC_GLL" class="s-button" data-type="FY4B_AGRI_IMG_REGI_PCC_GLL">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_PCC_GLL.jpg">
+                            <label>Pseudo color</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_GLL_C01" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_GLL_C01">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_GLL_C01.jpg">
+                            <label>Band 1 (0.47μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_GLL_C02" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_GLL_C02">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_GLL_C02.jpg">
+                            <label>Band 2 (0.65μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_GLL_C03" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_GLL_C03">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_GLL_C03.jpg">
+                            <label>Band 3 (0.825μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_GLL_C04" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_GLL_C04">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_GLL_C04.jpg">
+                            <label>Band 4 (1.379μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_GLL_C05" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_GLL_C05">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_GLL_C05.jpg">
+                            <label>Band 5 (1.61μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_GLL_C06" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_GLL_C06">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_GLL_C06.jpg">
+                            <label>Band 6 (2.25μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_GLL_C07" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_GLL_C07">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_GLL_C07.jpg">
+                            <label>Band 7 (3.75μm, high)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_GLL_C08" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_GLL_C08">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_GLL_C08.jpg">
+                            <label>Band 8 (3.75μm, low)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_GLL_C09" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_GLL_C09">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_GLL_C09.jpg">
+                            <label>Band 9 (6.25μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_GLL_C10" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_GLL_C10">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_GLL_C10.jpg">
+                            <label>Band 10 (6.95μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_GLL_C11" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_GLL_C11">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_GLL_C11.jpg">
+                            <label>Band 11 (7.42μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_GLL_C12" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_GLL_C12">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_GLL_C12.jpg">
+                            <label>Band 12 (8.55μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_GLL_C13" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_GLL_C13">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_GLL_C13.jpg">
+                            <label>Band 13 (10.8μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_GLL_C14" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_GLL_C14">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_GLL_C14.jpg">
+                            <label>Band 14 (12.0μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_GLL_C15" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_GLL_C15">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_GLL_C15.jpg">
+                            <label>Band 15 (13.3μm)</label>
+                        </a>
+                    </li>
+                </ul>
+                <!--FY4B兰波托图像-->
+                <ul class="list-inline FY4B_AGRI_IMG_REGI_PCC_LBT">
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_PCC_LBT" class="s-button" data-type="FY4B_AGRI_IMG_REGI_PCC_LBT">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_PCC_LBT.jpg">
+                            <label>Pseudo color</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_LBT_C01" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_LBT_C01">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_LBT_C01.jpg">
+                            <label>Band 1 (0.47μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_LBT_C02" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_LBT_C02">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_LBT_C02.jpg">
+                            <label>Band 2 (0.65μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_LBT_C03" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_LBT_C03">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_LBT_C03.jpg">
+                            <label>Band 3 (0.825μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_LBT_C04" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_LBT_C04">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_LBT_C04.jpg">
+                            <label>Band 4 (1.379μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_LBT_C05" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_LBT_C05">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_LBT_C05.jpg">
+                            <label>Band 5 (1.61μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_LBT_C06" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_LBT_C06">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_LBT_C06.jpg">
+                            <label>Band 6 (2.25μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_LBT_C07" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_LBT_C07">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_LBT_C07.jpg">
+                            <label>Band 7 (3.75μm, high)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_LBT_C08" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_LBT_C08">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_LBT_C08.jpg">
+                            <label>Band 8 (3.75μm, low)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_LBT_C09" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_LBT_C09">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_LBT_C09.jpg">
+                            <label>Band 9 (6.25μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_COL_LBT_C09" class="s-button" data-type="FY4B_AGRI_IMG_REGI_COL_LBT_C09">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_COL_LBT_C09.jpg">
+                            <label>Band 9 (6.25μm), colored</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_LBT_C10" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_LBT_C10">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_LBT_C10.jpg">
+                            <label>Band 10 (6.95μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_LBT_C11" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_LBT_C11">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_LBT_C11.jpg">
+                            <label>Band 11 (7.42μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_LBT_C12" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_LBT_C12">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_LBT_C12.jpg">
+                            <label>Band 12 (8.55μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_LBT_C13" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_LBT_C13">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_LBT_C13.jpg">
+                            <label>Band 13 (10.8μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_COL_LBT_C13" class="s-button" data-type="FY4B_AGRI_IMG_REGI_COL_LBT_C13">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_COL_LBT_C13.jpg">
+                            <label>Band 13 (10.8μm), colored</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_LBT_C14" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_LBT_C14">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_LBT_C14.jpg">
+                            <label>Band 14 (12.0μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_LBT_C15" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_LBT_C15">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_LBT_C15.jpg">
+                            <label>Band 15 (13.3μm)</label>
+                        </a>
+                    </li>
+                </ul>
+                <!--FY4B麦卡托图像-->
+                <ul class="list-inline FY4B_AGRI_IMG_REGI_PCC_MCT">
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_PCC_MCT" class="s-button" data-type="FY4B_AGRI_IMG_REGI_PCC_MCT">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_PCC_MCT.jpg">
+                            <label>Pseudo color</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_MCT_C01" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_MCT_C01">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_MCT_C01.jpg">
+                            <label>Band 1 (0.47μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_MCT_C02" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_MCT_C02">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_MCT_C02.jpg">
+                            <label>Band 2 (0.65μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_MCT_C03" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_MCT_C03">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_MCT_C03.jpg">
+                            <label>Band 3 (0.825μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_MCT_C04" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_MCT_C04">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_MCT_C04.jpg">
+                            <label>Band 4 (1.379μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_MCT_C05" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_MCT_C05">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_MCT_C05.jpg">
+                            <label>Band 5 (1.61μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_MCT_C06" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_MCT_C06">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_MCT_C06.jpg">
+                            <label>Band 6 (2.25μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_MCT_C07" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_MCT_C07">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_MCT_C07.jpg">
+                            <label>Band 7 (3.75μm, high)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_MCT_C08" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_MCT_C08">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_MCT_C08.jpg">
+                            <label>Band 8 (3.75μm, low)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_MCT_C09" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_MCT_C09">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_MCT_C09.jpg">
+                            <label>Band 9 (6.25μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_COL_MCT_C09" class="s-button" data-type="FY4B_AGRI_IMG_REGI_COL_MCT_C09">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_COL_MCT_C09.jpg">
+                            <label>Band 9 (6.25μm), colored</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_MCT_C10" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_MCT_C10">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_MCT_C10.jpg">
+                            <label>Band 10 (6.95μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_MCT_C11" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_MCT_C11">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_MCT_C11.jpg">
+                            <label>Band 11 (7.42μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_MCT_C12" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_MCT_C12">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_MCT_C12.jpg">
+                            <label>Band 12 (8.55μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_MCT_C13" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_MCT_C13">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_MCT_C13.jpg">
+                            <label>Band 13 (10.8μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_COL_MCT_C13" class="s-button" data-type="FY4B_AGRI_IMG_REGI_COL_MCT_C13">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_COL_MCT_C13.jpg">
+                            <label>Band 13 (10.8μm), colored</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_MCT_C14" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_MCT_C14">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_MCT_C14.jpg">
+                            <label>Band 14 (12.0μm)</label>
+                        </a>
+                    </li>
+                    <li id="j-btn-FY4B_AGRI_IMG_REGI_GRA_MCT_C15" class="s-button" data-type="FY4B_AGRI_IMG_REGI_GRA_MCT_C15">
+                        <a>
+                            <img src="//img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/THUMBNAIL/FY4B_AGRI_REGI_GRA_MCT_C15.jpg">
+                            <label>Band 15 (13.3μm)</label>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- 底部 -->
+<div class="g-footer"></div>
+
+<!-- 侧边栏 -->
+<div class="g-sidebar"></div>
+
+<!-- 页面相关信息 -->
+<div id="PageInfo" class="en nsmclogin haslogin" style="display: none;">/nsmc/cn/image/index.html</div>
+
+<script src="../../js/lib/jquery/jquery.min.js"></script>
+<script src="../../js/module.properties.js"></script>
+<script src="../../js/lib/bootstrap/bootstrap.min.js"></script>
+<script src="../../js/lib/viewer.js"></script>
+<script src="../../js/module.share.en.login.js"></script>
+<script src="../../js/module.share.en.header.js"></script>
+<script src="../../js/module.share.en.footer.js"></script>
+<script src="../../js/module.share.en.sidebar.js"></script>
+<script src="../../js/page.image.index.js?v=20250507"></script>
+<script src="../../js/module.navpanel.js"></script>
+</body>
+</html>
