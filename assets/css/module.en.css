@@ -1,0 +1,504 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    line-height:1.0;
+}
+
+#PageInfo {
+    display:none;
+}
+
+.modal-dialog{
+	z-index:9999;
+}
+
+.full-width {
+	width:90% !important;
+}
+
+
+@media (min-width: 1250px ){
+	.u-width{
+		width:90%;
+	}
+}
+@media (min-width: 1600px ){
+ 	.u-width{
+		width:82%;
+	}
+}
+
+p {
+    line-height: 1.42857143;
+}
+
+.g-textindent {
+    text-indent: 2em;
+}
+.g-textindent2 {
+    text-indent: 4em;
+}
+
+/* 通用: div间分隔 */
+.g-interval {
+    height:20px;
+}
+.g-intervalhalf {
+    height:10px;
+}
+.g-interval2 {
+    height:40px;
+}
+.g-interval3 {
+    height:60px;
+}
+.g-interval4 {
+    height:80px;
+}
+.g-interval5 {
+    height:100px;
+}
+
+.g-content {
+    min-height: calc(100vh - 500px);;
+}
+
+/* 排版 */
+
+.g-halfwidth {
+    width: 50%;
+}
+
+/* 列表 */
+.u-ulist {
+    margin-left:1em;
+    margin-top:1em;
+    list-style-type: none;
+}
+.u-olist {
+    margin-left:2em;
+    margin-top:1em;
+}
+.u-tdempty {
+    background-color: #999;
+}
+
+
+/* status */
+.s-bg-green {
+    background-color: #6c6;
+}
+.s-bg-red {
+    background-color: #f66;
+}
+.s-bg-blue {
+    background-color: #69f;
+}
+.s-bg-yellow {
+    background-color: #ff6;
+}
+.s-bg-orange {
+    background-color: #f96;
+}
+.s-bg-white {
+    background-color: #fff;
+}
+.s-bg-gray {
+    background-color: #b5b4ba;
+}
+
+/* status 背景色透明 */
+.st-bg-green {
+    background-color: #6fcf6f1a;
+}
+.st-bg-red {
+    background-color: #ff6f6f1a;
+}
+.st-bg-blue {
+    background-color: #6f9fff1a;
+}
+.st-bg-yellow {
+    background-color: #ffff6f1a;
+}
+.st-bg-orange {
+    background-color: #ff9f6f1a;
+}
+.st-bg-blank {
+    background-color: #0f0f0f1a;
+}
+.st-bg-white {
+    background-color: #ffffff1a;
+}
+.st-bg-gray {
+    background-color: #b5b4ba1a;
+}
+
+
+/* status 文字 */
+.w-bg-green {
+    color: #6c6;
+}
+.w-bg-red {
+    color: #f66;
+}
+.w-bg-blue {
+    color: #69f;
+}
+.w-bg-yellow {
+    color: #ff6;
+}
+.w-bg-orange {
+    color: #f96;
+}
+.w-bg-gray {
+    color: #b5b4ba;
+}
+.w-bg-blank {
+    color: #000;
+}
+
+/* status 边界 */
+.b-bg-green {
+	border: 1px solid #6c6;
+}
+.b-bg-red {
+	border: 1px solid #f66;
+}
+.b-bg-blue {
+	border: 1px solid #69f;
+}
+.b-bg-yellow {
+	border: 1px solid #ff6;
+}
+.b-bg-orange {
+	border: 1px solid #f96;
+}
+.b-bg-gray {
+	border: 1px solid #b5b4ba;
+}
+.b-bg-blank {
+	border: 1px solid #000;
+}
+
+.swb-bg-green {
+    color: #6c6;
+    background: #6c6;
+    border: 1px solid #6c6;
+}
+.swb-bg-red {
+    color: #f66;
+    background: #f66;
+    border: 1px solid #f66;
+}
+.swb-bg-blue {
+    color: #69f;
+    background: #69f;
+    border: 1px solid #69f;
+}
+.swb-bg-yellow {
+    color: #ff6;
+    background: #ff6;
+    border: 1px solid #ff6;
+}
+.swb-bg-orange {
+    color: #f96;
+    background: #f96;
+    border: 1px solid #f96;
+}
+.swb-bg-gray {
+    color: #b5b4ba;
+    background: #b5b4ba;
+    border: 1px solid #b5b4ba;
+}
+.swb-bg-blank {
+    color: #000;
+    background: #000;
+    border: 1px solid #000;
+}
+
+.pad-sinterval{
+	padding-right:5px;
+}
+
+
+/* 分割线 */
+.g-line {
+	height:2px;
+	border:none;
+	border-top:2px dotted #337ab7;
+}
+.g-grayline{
+    width: auto; 
+    height: 1px; 
+    background-color: gray;
+}
+
+/* 向右缩进 */
+.g-left20 {
+	margin-left: 20px;
+}
+
+.g-left40 {
+	margin-left: 40px;
+}
+
+
+/****卫星运行状态 图例*****/
+.stalegendlist{
+	/* text-align: right;
+	width: 35px;
+	font-size: 15px;
+	float: right; */
+	background: rgba(0, 0, 0, 0.5);
+}
+.stalegendlist .stalegend{
+	padding: 5px;
+	float: none;
+	text-align: center;
+	font-size: 16px;
+}
+.stalegendlist .stalegend-head{
+	color: white;
+	/* width: 16px; */
+	font-size: 16px;
+}
+
+.stalegend span{
+	cursor: pointer;
+}
+.stalegend ul{
+	display:none;
+}
+
+.stalegend:hover ul {
+    display:block;
+}
+
+.stalegend div{
+	display: none;
+	position: absolute;
+	top: 0;
+	margin-right: 0;
+	left: -150px;
+	z-index: 0;
+	display: none;
+	padding: 5px;
+	margin: 0;
+	font-size: 14px;
+	text-align: right;
+	color: white;
+	word-break: break-all;
+    white-space: nowrap;
+}
+
+.stalegend:hover div {
+    display:block;
+}
+
+.stalegend p{
+	display: none;
+	position: absolute;
+	top: 0;
+	margin-right: 0;
+	width: 150px;
+	z-index: 0;
+	display: none;
+	padding: 5px;
+	margin: 0;
+	font-size: 14px;
+	text-align: right;
+	color: white;
+}
+
+.stalegend:hover p {
+    display:block;
+}
+
+/* 图例对齐方式  */
+#j-pinned .navbar-nav {
+    float: right;
+}
+#j-pinned .navbar-nav>li>a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+/* 带分隔标题 */
+/* .u-headline {
+	color:white;
+	background-color:#337ab7;
+	padding: 5px;
+}
+.u-headlinegrey {
+	color:white;
+	background-color:#69D;
+	padding: 5px;
+} */
+.u-headline {
+    color:white;
+    background-color:#337ab7;
+    padding: 5px;
+    color: #2f2f2f;
+    background-color: #bcc6d0;
+}
+.u-headlinegrey {
+    color:#fff;
+    background-color:#69D;
+    padding: 5px;
+    color:#000;
+    background-color:#fff;
+    padding-left: 0px;
+    
+}
+
+
+/* 表格  */
+.s-table {
+    border: 1px solid rgb(204,204,204);
+}
+
+.s-table th {
+	background-color:#69D;
+	color:#fff;
+}
+
+.s-table-noborder table tr td {
+	border-top: 0;
+}
+
+/*****重新定义表格的头部颜色***********/
+.s-table th {
+	/* background-color:#69D; */
+	/* background-color:#006;
+    color:#fff; */
+    background: #bcc6d0;
+    color: #2f2f2f;
+}
+
+.s-table-noborder table tr td {
+	border-top: 0;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #fff;
+}
+.table-striped>tbody>tr:hover, .table-hover>tbody>tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* 图片比例  */
+.g-autosize {
+    width: 100%;
+    overflow:hidden;
+}
+.g-autosize img {
+    width:100%;
+    height: calc(100%);
+}
+
+/* Tooltip */
+.tooltip-options a {
+    cursor: pointer;
+}
+
+.tooltip-text {
+	font-size: 1.2em;
+	text-align: left;
+}
+
+/*选择按钮样式*/
+.s-button-active, .s-button:hover, .s-button:focus {
+	outline-offset: 0;
+	outline: 3px solid rgba(131,192,253,.5);
+	border-color: #0070c9;
+	background-color: #fff;
+}
+
+.s-button {
+	margin-left:10px;
+	margin-bottom: 10px;
+}
+.list-group a{
+	color:#333;
+}
+.list-group .s-focused a{
+    color: #5384ce;
+    font-weight: bold;
+}
+
+.s-focused {
+    background-color: #eee;
+    border: 1px dotted #006;
+    /* color: bisque; */
+}
+
+/* left nav panel*/
+.panel-heading .panel-title {
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+
+/***********风云卫星系列与仪器*************/
+.sate-linkstyle{
+	color:black;
+}
+.sate-linkstyle:hover, .s-button:focus{
+	color:blue;
+	text-decoration: underline;
+}
+
+/*******面包屑*****************/
+.breadcrumb {
+    padding: 20px 0px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    list-style: none;
+    background-color: #fff;
+    border-radius: 0px;
+    border-bottom: 1px solid #eee;
+}
+
+.breadcrumb li a{
+	color: #969696;
+}
+
+.breadcrumb>.active, .breadcrumb li:last a, .breadcrumb li:last {
+    color: #333;
+}
+.breadcrumb li a:focus, .breadcrumb li a:hover {
+    color: #23527c;
+    text-decoration: underline;
+}
+
+/****************************************************************/
+.observsch-style, .observsch-style .radio-inline input{
+	line-height: 34px;
+}
+
+/** 英文左侧栏  **/
+.panel-primary>.panel-heading {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+    background-color: #5589BB;
+    color: white;
+    text-align: left;
+    height: 3.5rem;
+    border-radius: 0px;
+    line-height: 2rem;
+}
+
+.first_title {
+    color: #024acd;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.1;
+    margin: .67em 0;
+}
+html, body{
+    font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}

@@ -1,0 +1,164 @@
+@charset "utf-8";
+
+#g-gotop {
+    position: fixed;
+    left: 1rem;
+    z-index: 999;
+    width: 50px;
+}
+#g-gotop a {
+    display: block;
+    width: 3.3em;
+    height: 3.3em;
+    color: white;
+    background-color: #337ab7;
+}
+
+.g-qrcode {
+    position:fixed;
+    left: 1rem;
+    width: 50px;
+    z-index: 100;
+    display:none;
+}
+
+.g-qrcode .g-app, .g-qrcode .g-weixin, .g-qrcode .g-weibo, .g-qrcode .g-weixiao, .g-qrcode .g-single {
+    height: 190px;
+    background-color: #eee;	
+	position: relative;
+    top: -46px;
+    left: 50px;
+	display:none;
+}
+
+.g-qrcode .g-weixin, .g-qrcode .g-weibo, .g-qrcode .g-weixiao {
+    width: 170px;
+    right: 172px;
+}
+
+.g-qrcode .g-single {
+    width: 355px;
+    left: -355px;
+}
+
+.g-qrcode .g-weibo {
+	height: 200px;
+}
+.g-qrcode .g-app {
+    height: 180px;
+	width: 655px;
+    left: -655px;
+}
+
+.g-qrcode:HOVER div {
+    display:block;
+}
+
+.g-qrcode .g-qrcode-img img {
+    width: 130px;
+    height:130px;
+}
+
+.g-qrcode .g-qrcode-img {
+    width: 130px;
+    height:130px;
+    position: relative;
+    text-align: center;
+}
+.g-qrcode-img-row0col1 {
+    top: 20px;
+    left: 20px;
+}
+.g-qrcode-img-row0col2 {
+    top: -110px;
+    left: 170px;  
+}
+
+.g-qrcode-img-row1col3 {
+    top: 20px;
+    left: 320px;  
+}
+.g-qrcode-img-row2col2 {
+    top: -50px;
+    left: 170px;
+}
+.g-qrcode-img-row2col3 {
+    top: -125px;
+    left: 320px;  
+}
+.g-qrcode-img-row3col1 {
+    top: -160px;
+    left: 20px;
+}
+.g-qrcode-img-row3col2 {
+    top: -160px;
+    left: 170px;  
+}
+.g-qrcode-img-row3col3 {
+    top: -260px;
+    left: 320px;  
+}
+
+.g-qrcode .g-qrcode-txt1 {
+	width: 210px;
+    height:130px;
+    position: relative;
+    top: -100px;
+    left: 450px;
+}
+
+.g-qrcode .g-qrcode-txt2 {
+    width: 210px;
+    height: 130px;
+    position: relative;
+    top: -240px;
+    left: 450px;
+}
+
+.g-qrcode .g-qrcode-txt3 {
+    width: 210px;
+    height:130px;
+    position: relative;
+    top: -380px;
+    left: 450px;
+}
+
+.g-qrcode .g-qrcode-txt0 {
+    width: 210px;
+    height: 130px;
+    position: relative;
+    top: -240px;
+    left: 300px;
+}
+
+.g-qrcode .g-qrcode-txt-single {
+    width: 210px;
+    height: 130px;
+    position: relative;
+    top: -265px;
+    left: 150px;
+}
+
+.g-qrcode .g-qrcode-th {
+    padding-top: 5px;
+    float:left;
+    margin-left:20px;
+}
+.g-qrcode .g-qrcode-td {
+    margin-left:20px;
+    float:left;
+}
+
+
+.g-side-app{
+    color: white;
+    background-color: #337ab7;
+    padding: 5px 7px 2px 8px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    height: 3.3em;
+    width: 3.3em;
+}
