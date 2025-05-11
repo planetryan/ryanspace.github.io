@@ -1,0 +1,63 @@
+name: Video downloader
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  update_videos:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Download videos
+        run: |
+          mkdir -p assets/videos
+          python -c "
+import requests
+import os
+
+urls = [
+    'https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.24h.mp4',
+    'https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/VIDEO/GEOS.MOS.IRX.GBAL.72h.mp4',
+    'https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/GCLR/VIDEO/FY4B.disk.gclr.24h.mp4',
+    'https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/GCLR/VIDEO/FY4B.disk.gclr.72h.mp4',
+    'https://img.nsmc.org.cn/CLOUDIMAGE/FY2H/VIDEO/FY2H.br.72h.mp4',
+    'https://agora.ex.nii.ac.jp/digital-typhoon/latest/animation/MP4/last-024h.mp4',
+    'https://agora.ex.nii.ac.jp/digital-typhoon/latest/animation/MP4/last-240h.mp4'
+]
+
+os.makedirs('assets/videos', exist_ok=True)
+
+for url in urls:
+    try:
+        file_name = os.path.join('assets', 'videos', os.path.basename(url))
+        print(f'Downloading {url}...')
+        response = requests.get(url, timeout=30)
+        response.raise_for_status()
+        with open(file_name, 'wb') as f:
+            f.write(response.content)
+    except Exception as e:
+        print(f'Failed to download {url}: {e}')
+          "
+
+      - name: Git commit and push changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add assets/videos/*.mp4 || true
+          git commit -m "Automated video update" || echo "No changes to commit"
+          git push origin main || echo "No changes to push"

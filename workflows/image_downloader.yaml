@@ -1,0 +1,73 @@
+name: image downloader
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  download_images:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Download Image
+        run: |
+          mkdir -p assets/imatges
+          cat > download.py << 'EOF'
+          import requests
+          import os
+
+          urls = {
+              'GOES19_10848.jpg': 'https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/10848x10848.jpg',
+              'GOES19_1808.jpg': 'https://cdn.star.nesdis.noaa.gov/GOES19/ABI/FD/GEOCOLOR/1808x1808.jpg',
+              'GOES18_10848.jpg': 'https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/10848x10848.jpg',
+              'GOES18_1808.jpg': 'https://cdn.star.nesdis.noaa.gov/GOES18/ABI/FD/GEOCOLOR/1808x1808.jpg',
+              'EUMETSAT_MSGIODC_FULL.jpg': 'https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSGIODC_RGBNatColourEnhncd_FullResolution.jpg',
+              'EUMETSAT_MSGIODC_LOW.jpg': 'https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSGIODC_RGBNatColourEnhncd_LowResolution.jpg',
+              'EUMETSAT_MSG_FULL.jpg': 'https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_FullResolution.jpg',
+              'EUMETSAT_MSG_LOW.jpg': 'https://eumetview.eumetsat.int/static-images/latestImages/EUMETSAT_MSG_RGBNatColourEnhncd_LowResolution.jpg',
+              'Himawari_latest.jpg': 'https://agora.ex.nii.ac.jp/digital-typhoon/himawari-3g/latest/Hsfd/full/latest.jpg',
+              'Himawari_8192_vis.jpg': 'https://agora.ex.nii.ac.jp/digital-typhoon/latest/globe/8192x8192/vis.jpg',
+              'Himawari_512_ir.jpg': 'https://agora.ex.nii.ac.jp/digital-typhoon/latest/globe/512x512/ir.jpg',
+              'FY3D_MERSI_GLOBAL.jpg': 'https://img.nsmc.org.cn/CLOUDIMAGE/FY3D/MIPS/FY3D_MERSI_GLOBAL.jpg',
+              'FY3D_MERSI_POLAR_NORTH.jpg': 'https://img.nsmc.org.cn/CLOUDIMAGE/FY3D/MIPS/FY3D_MERSI_POLAR_NORTH.jpg',
+              'FY3D_MERSI_POLAR_SOUTH.jpg': 'https://img.nsmc.org.cn/CLOUDIMAGE/FY3D/MIPS/FY3D_MERSI_POLAR_SOUTH.jpg',
+              'GEOS_IRX.jpg': 'https://img.nsmc.org.cn/CLOUDIMAGE/GEOS/MOS/IRX/PIC/GBAL/GEOS_IMAGR_GBAL_L2_MOS_IRX_GLL_YYYYMMDD_HHmm_10KM_MS.jpg',
+              'FY4B_GCLR.jpg': 'https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/GCLR/FY4B_DISK_GCLR.JPG',
+              'FY4B_SWCI.jpg': 'https://img.nsmc.org.cn/CLOUDIMAGE/FY4B/AGRI/SWCI/FY4B_DISK_SWCI.JPG',
+              'FY2H_NOM.jpg': 'https://img.nsmc.org.cn/CLOUDIMAGE/FY2H/NOM/FY2H_ETV_NOM.jpg',
+              'FY2H_GLL.jpg': 'https://img.nsmc.org.cn/CLOUDIMAGE/FY2H/GLL/FY2H_ETV_SEC_GLB.jpg'
+          }
+
+          for filename, url in urls.items():
+              try:
+                  print(f'Downloading {filename}...')
+                  response = requests.get(url)
+                  response.raise_for_status()
+                  with open(os.path.join('assets', 'images', filename), 'wb') as f:
+                      f.write(response.content)
+              except Exception as e:
+                  print(f'Failed to download {filename}: {e}')
+          EOF
+          python download.py
+
+      - name: Commit and push
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add assets/imatges/*.jpg || true
+          git commit -m "Hourly update of images" || echo "No changes to commit"
+          git push origin main || echo "No changes to push"
