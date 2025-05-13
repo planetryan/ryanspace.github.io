@@ -1,5 +1,2 @@
 TODO:
-1. Add Video GIF Replay
-2. Add multi language support
-3. Add more image sources
-4. Add a low resolution image page
+- Nothing coming to mind for now!
